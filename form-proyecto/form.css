@@ -1,0 +1,467 @@
+/* ══════════════════════════════════════
+   IDENTIDAD — Formulario de Artículo
+   Paleta y tipografía de la revista
+══════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:       #1a2744;
+  --navy-mid:   #243152;
+  --navy-light: #2d3d63;
+  --gold:       #c9a84c;
+  --gold-light: #e2c97e;
+  --cream:      #f5f0e8;
+  --cream-dark: #ede5d5;
+  --white:      #ffffff;
+  --text-body:  #2a2a2a;
+  --text-muted: #6b6b6b;
+  --green-btn:  #3a7d44;
+  --green-hover:#2e6337;
+  --red-soft:   #9b3a3a;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0d1626 0%, #1a2744 40%, #0f1e38 100%);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: var(--text-body);
+}
+
+/* ── PAGE WRAPPER ── */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ── TOPBAR (igual a la revista) ── */
+.topbar {
+  background: var(--navy);
+  padding: 12px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.topbar-back {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.topbar-back:hover { color: var(--gold); }
+
+.topbar-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.topbar-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+/* ── MAIN FORM CONTAINER ── */
+.form-container {
+  flex: 1;
+  max-width: 780px;
+  width: 100%;
+  margin: 48px auto;
+  background: var(--cream);
+  border-radius: 3px;
+  box-shadow: 0 30px 90px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.15);
+  overflow: hidden;
+}
+
+/* ── FORM HEADER ── */
+.form-header {
+  background: var(--navy-mid);
+  padding: 36px 48px 28px;
+  text-align: center;
+}
+
+.form-label-top {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.form-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+.form-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(255,255,255,0.55);
+  margin-top: 8px;
+}
+
+.gold-rule {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  margin: 18px auto 0;
+}
+
+/* ── FORM BODY ── */
+.form-body {
+  padding: 40px 48px 44px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 28px;
+}
+
+/* ── FIELD GROUP SIZES ── */
+.field-group        { display: flex; flex-direction: column; gap: 7px; }
+.field-group.full   { grid-column: 1 / -1; }
+.field-group.half   { grid-column: span 1; }
+.field-group.third  { grid-column: span 1; }
+
+/* ── LABELS ── */
+.campo-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+/* ── INPUTS ── */
+.campo-input {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  color: var(--text-body);
+  background: var(--white);
+  border: 1px solid rgba(26,39,68,0.18);
+  border-bottom: 2px solid rgba(26,39,68,0.2);
+  border-radius: 2px;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.field-input:focus {
+  border-color: var(--gold);
+  border-bottom-color: var(--gold);
+  box-shadow: 0 2px 0 0 var(--gold), 0 4px 16px rgba(201,168,76,0.1);
+}
+
+.field-input::placeholder {
+  color: rgba(107,107,107,0.5);
+  font-style: italic;
+}
+
+/* Select */
+.field-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%231a2744'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  cursor: pointer;
+}
+
+/* Textareas */
+.field-textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+.field-textarea.short { min-height: 90px; }
+.field-textarea.tall  { min-height: 130px; }
+
+/* Char counter */
+.char-count {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+/* ── IMAGE UPLOAD ROW ── */
+.image-row {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.gallery-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Upload button */
+.btn-upload {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--white);
+  background: var(--green-btn);
+  border: none;
+  border-radius: 2px;
+  padding: 12px 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 120px;
+  transition: background 0.2s, transform 0.1s;
+  white-space: nowrap;
+}
+.btn-upload:hover   { background: var(--green-hover); }
+.btn-upload:active  { transform: scale(0.97); }
+
+.upload-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Main image preview */
+.img-preview {
+  flex: 1;
+  min-height: 100px;
+  background: #b8d8e8;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(26,39,68,0.1);
+}
+
+.preview-placeholder {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(26,39,68,0.5);
+}
+
+.img-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Gallery thumbnails */
+.gallery-grid {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+}
+
+.gallery-thumb {
+  flex: 1;
+  aspect-ratio: 1;
+  min-width: 60px;
+  max-width: 90px;
+  background: #b8d8e8;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(26,39,68,0.1);
+  overflow: hidden;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  font-style: italic;
+  color: rgba(26,39,68,0.45);
+  transition: border-color 0.2s;
+}
+
+.gallery-thumb.filled {
+  background: transparent;
+  border-color: var(--gold);
+}
+
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tags */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 0;
+  margin-top: 2px;
+}
+
+.tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: var(--cream-dark);
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 2px;
+  padding: 4px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: default;
+}
+
+.tag-remove {
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+  transition: color 0.15s;
+}
+.tag-remove:hover { color: var(--red-soft); }
+
+/* ── BUTTONS ROW ── */
+.buttons-row {
+  flex-direction: row !important;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(26,39,68,0.1);
+}
+
+.btn {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2px;
+  padding: 12px 22px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+.btn:active { transform: scale(0.97); }
+
+.btn-cancel {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid rgba(107,107,107,0.3);
+}
+.btn-cancel:hover {
+  background: rgba(107,107,107,0.08);
+  color: var(--text-body);
+}
+
+.btn-draft {
+  background: var(--green-btn);
+  color: var(--white);
+}
+.btn-draft:hover {
+  background: var(--green-hover);
+  box-shadow: 0 4px 16px rgba(58,125,68,0.3);
+}
+
+.btn-publish {
+  background: var(--navy);
+  color: var(--white);
+  border: 1px solid var(--gold);
+  position: relative;
+  overflow: hidden;
+}
+.btn-publish::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(201,168,76,0.15));
+  pointer-events: none;
+}
+.btn-publish:hover {
+  background: var(--navy-light);
+  box-shadow: 0 4px 20px rgba(201,168,76,0.25);
+}
+
+/* ── FOOTER ── */
+.page-footer {
+  background: var(--navy);
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  border-top: 1px solid rgba(201,168,76,0.15);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .form-body { padding: 28px 24px 32px; gap: 18px; }
+  .form-header { padding: 28px 24px 22px; }
+  .topbar { padding: 12px 20px; }
+  .topbar-back { display: none; }
+  .buttons-row { flex-direction: column !important; gap: 10px; }
+  .btn { width: 100%; text-align: center; }
+  .gallery-grid { overflow-x: auto; }
+}
+
+#previewPortada {
+  position: relative;
+  display: 1;
+}
+
+#btnBorrarPortada {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos base del editor Quill */
+#editorContenido .ql-editor {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+/* Sangría en primera línea de cada párrafo */
+#editorContenido .ql-editor p {
+  text-indent: 1em;
+}

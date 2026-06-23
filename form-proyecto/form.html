@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IDENTIDAD — Nuevo Artículo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="form.css">
+  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <span class="topbar-back" type= "button" id="btnback"> ← Volver a la revista</span>
+      <span class="topbar-title">IDENTIDAD</span>
+      <span class="topbar-date">Junio 2026 — N° 01</span>
+    </header>
+
+    <main class="form-container">
+
+      <div class="form-header">
+        <p class="form-label-top">NUEVA PUBLICACIÓN</p>
+        <h1 class="form-title">Crea tu Columna</h1>
+        <p class="form-subtitle">Completá los campos para subir un nuevo artículo</p>
+        <div class="gold-rule"></div>
+      </div>
+
+      <form id="formularioArticulo" class="form-body">
+
+        <!-- Título -->
+        <div class="field-group full">
+          <label class="campo-label" for="titulo">Título</label>
+          <input class="campo-input" type="text" id="titulo" name="titulo" placeholder="Ej: Colonia del Sacramento, 300 años de historia viva">
+        </div>
+
+        <!-- Subtítulo -->
+        <div class="field-group full">
+          <label class="campo-label" for="subtitulo">Subtítulo</label>
+          <input class="campo-input" type="text" id="subtitulo" name="subtitulo" placeholder="Ej: 300 años de historia viva">
+        </div>
+
+        <!-- Fecha y Autor -->
+        <div class="field-group half">
+          <label class="campo-label" for="fecha">Fecha de Publicación</label>
+          <input class="campo-input" type="date" id="fecha" name="fecha">
+        </div>
+        <div class="field-group half">
+          <label class="campo-label" for="autor">Autor</label>
+          <input class="campo-input" type="text" id="autor" name="autor" placeholder="Nombre del autor">
+        </div>
+
+        <!-- Imagen destacada -->
+        <div class="field-group full">
+          <label class="campo-label">Imagen destacada</label>
+          <div class="image-row">
+            <button class="btn-upload" type="button" id="btnPortada">
+              <span class="upload-icon">↑</span>
+              Subir imagen
+            </button>
+            <input type="file" id="inputPortada" accept="image/*" hidden>
+            <div class="img-preview" id="previewPortada">
+              <span class="preview-placeholder">Img Destacada</span>
+              <img id="imgPortada" src="" alt="Preview portada" hidden>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contenido 1 -->
+        <div class="field-group full">
+          <label class="campo-label">Contenido 1</label>
+          <div id="editorContenido1"></div>
+        </div>
+
+        <!-- Galería -->
+        <div class="field-group full">
+          <label class="campo-label">Galería de imágenes</label>
+          <div class="gallery-row">
+            <button class="btn-upload" type="button" id="btnGaleria">
+              <span class="upload-icon">+</span>
+              Agrega imgs +
+            </button>
+            <input type="file" id="inputGaleria" accept="image/*" multiple hidden>
+            <div class="gallery-grid" id="galleryGrid">
+              <div class="gallery-thumb empty"><span>img1</span></div>
+              <div class="gallery-thumb empty"><span>img2</span></div>
+              <div class="gallery-thumb empty"><span>img3</span></div>
+              <div class="gallery-thumb empty"><span>img4</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contenido 2 -->
+        <div class="field-group full">
+          <label class="campo-label">Contenido 2</label>
+          <div id="editorContenido2"></div>
+        </div>
+
+        <!-- Etiquetas -->
+        <div class="field-group full">
+          <label class="campo-label" for="etiquetas">Etiquetas</label>
+          <input class="campo-input" type="text" id="etiquetas" name="etiquetas" placeholder="Ej: tecnología, arquitectura, historia">
+          <div class="tags-container" id="tagsContainer"></div>
+        </div>
+
+        <!-- Categoría -->
+        <div class="field-group third">
+          <label class="campo-label" for="categoria">Categoría</label>
+          <select class="campo-input field-select" id="categoria" name="categoria">
+            <option value="" disabled selected>Seleccionar</option>
+            <option>Patrimonio</option>
+            <option>Historia</option>
+            <option>Cultura</option>
+            <option>Arte</option>
+            <option>Monumentos</option>
+            <option>Arquitectura</option>
+          </select>
+        </div>
+
+        <!-- Mensaje de feedback -->
+        <p id="mensaje"></p>
+
+        <!-- Botones -->
+        <div class="field-group full buttons-row">
+          <button class="btn btn-cancel" type="button">Cancelar</button>
+          <button class="btn btn-publish" type="button">Publicar Artículo</button>
+        </div>
+
+      </form>
+
+    </main>
+
+    <footer class="page-footer">
+      <span>IDENTIDAD — Cultura · Historia · Patrimonio · Uruguay</span>
+      <span>ISSN 2993-XXXX</span>
+    </footer>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+  <script>
+    const toolbarOpciones = [
+      [{ header: [1, 2, 3, false] }],
+      ['bold', 'italic', 'underline', 'strike'],
+      [{ color: [] }, { background: [] }],
+      [{ align: [] }],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      ['blockquote'],
+      ['clean']
+    ];
+
+    const quill1 = new Quill('#editorContenido1', {
+      theme: 'snow',
+      placeholder: 'Introducción del artículo...',
+      modules: { toolbar: toolbarOpciones }
+    });
+
+    const quill2 = new Quill('#editorContenido2', {
+      theme: 'snow',
+      placeholder: 'Continuación del artículo...',
+      modules: { toolbar: toolbarOpciones }
+    });
+
+    // Formato por defecto para los dos editores
+    [quill1, quill2].forEach(q => {
+      q.format('align', 'justify');
+      q.root.style.fontFamily = 'Arial, sans-serif';
+      q.root.style.fontSize = '12px';
+      q.root.style.lineHeight = '1.5';
+    });
+  </script>
+  <script src="form.js"></script>
+</body>
+</html>

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => { // Espera a que todo el HT
 
    const btnBack = document.getElementById("btnback");
 
-  btnback.addEventListener("click", () => {
+  btnBack.addEventListener("click", () => {
   window.location.href = "../portada-proyecto/portada.html";
 });
 

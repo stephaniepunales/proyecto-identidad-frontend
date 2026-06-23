@@ -48,31 +48,34 @@ btnback.addEventListener("click", () => {
     // 5. Muestra la imagen destacada si existe
     // Se reemplaza solo el placeholder interno para no perder el <figcaption>
     if (articulo.portada) {
-      const placeholder = document.querySelector('.img-placeholder-main'); // Agarra el div placeholder
-      placeholder.innerHTML = '';           // Limpia el texto "img destacada"
-      placeholder.style.padding = '0';
-      placeholder.style.background = 'none';
+  const placeholder = document.querySelector('.img-placeholder-main');
+  placeholder.innerHTML = '';
+  placeholder.style.padding = '0';
+  placeholder.style.background = 'none';
 
-      const img = document.createElement('img');
-      img.src = articulo.portada;
-      img.alt = 'Imagen destacada';
-      img.style.width = '100%';
-      img.style.height = '100%';
-      img.style.objectFit = 'cover';
-      img.style.display = 'block';
-      placeholder.appendChild(img);         // Inserta la imagen adentro del placeholder
-    }
+  const img = document.createElement('img');
+  img.src = articulo.portada.startsWith('data:')
+    ? articulo.portada
+    : API_URL + articulo.portada;
+  img.alt = 'Imagen destacada';
+  img.style.width = '100%';
+  img.style.height = '100%';
+  img.style.objectFit = 'cover';
+  img.style.display = 'block';
+  placeholder.appendChild(img);
+}
 
     // 6. Muestra la galería si hay imágenes
     if (articulo.galeria && articulo.galeria.length > 0) {
-      const thumbs = document.querySelectorAll('.gallery-section .gallery-thumb'); // Agarra los 4 thumbs
+  const thumbs = document.querySelectorAll('.gallery-section .gallery-thumb');
 
-      articulo.galeria.forEach((base64, i) => {
-        if (thumbs[i] && base64) {
-          thumbs[i].innerHTML = `<img src="${base64}" alt="Imagen galería ${i + 1}" style="width:100%; height:100%; object-fit:cover; display:block;">`;
-        }
-      });
+  articulo.galeria.forEach((imagen, i) => {
+    if (thumbs[i] && imagen) {
+      const src = imagen.startsWith('data:') ? imagen : API_URL + imagen;
+      thumbs[i].innerHTML = `<img src="${src}" alt="Imagen galería ${i + 1}" style="width:100%; height:100%; object-fit:cover; display:block;">`;
     }
+  });
+}
 
   } catch (error) {
     console.error('Error de red:', error);

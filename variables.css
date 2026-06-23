@@ -1,0 +1,43 @@
+/*Este archivo .css lo hice para que no se repitieran las mismas variables dentro de los 3 .css y tenerlo mejor organizado*/
+
+:root {
+  /* Paleta */
+  --navy:        #1a2744;
+  --navy-mid:    #243152;
+  --navy-light:  #2d3d63;
+  --gold:        #c9a84c;
+  --gold-light:  #e2c97e;
+  --cream:       #f5f0e8;
+  --cream-dark:  #ede5d5;
+  --white:       #ffffff;
+
+  /* Texto */
+  --text-body:   #2a2a2a;
+  --text-muted:  #6b6b6b;
+
+  /* Estados / acciones */
+  --green-btn:   #3a7d44;
+  --green-hover: #2e6337;
+  --red-soft:    #9b3a3a;
+
+  /* Placeholders de imagen */
+  --img-bg:      #b8d0e3;
+
+  /* Tipografía */
+  --font-serif:   'Playfair Display', serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    Arial, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: var(--font-display);
+  color: var(--text-body);
+}

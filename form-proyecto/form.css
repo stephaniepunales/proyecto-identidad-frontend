@@ -1,67 +1,41 @@
-/* ══════════════════════════════════════
-   IDENTIDAD — Formulario de Artículo
-   Paleta y tipografía de la revista
-══════════════════════════════════════ */
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --navy:       #1a2744;
-  --navy-mid:   #243152;
-  --navy-light: #2d3d63;
-  --gold:       #c9a84c;
-  --gold-light: #e2c97e;
-  --cream:      #f5f0e8;
-  --cream-dark: #ede5d5;
-  --white:      #ffffff;
-  --text-body:  #2a2a2a;
-  --text-muted: #6b6b6b;
-  --green-btn:  #3a7d44;
-  --green-hover:#2e6337;
-  --red-soft:   #9b3a3a;
-}
-
 html, body {
-  width: 100%;
-  min-height: 100vh;
   background: linear-gradient(135deg, #0d1626 0%, #1a2744 40%, #0f1e38 100%);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  color: var(--text-body);
 }
 
-/* ── PAGE WRAPPER ── */
+/* el contenedor que envuelve todo el contenido visible*/
 .page-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* ── TOPBAR (igual a la revista) ── */
+/* topbar es parte del header */
 .topbar {
   background: var(--navy);
-  padding: 12px 40px;
+  padding: 12px clamp(24px, 4vw, 40px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(201,168,76,0.2);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
 .topbar-back {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 11px;
   letter-spacing: 2px;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   cursor: pointer;
   transition: color 0.2s;
 }
-.topbar-back:hover { color: var(--gold); }
+
+.topbar-back:hover { color: var(--gold); } /*El botón se pone dorado cuando el mouse esta encima*/
 
 .topbar-title {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-serif);
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 5px;
@@ -70,14 +44,14 @@ html, body {
 }
 
 .topbar-date {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 11px;
   letter-spacing: 3px;
   color: var(--gold);
   text-transform: uppercase;
 }
 
-/* ── MAIN FORM CONTAINER ── */
+/* es el main container donde empieza el formulario*/
 .form-container {
   flex: 1;
   max-width: 780px;
@@ -85,11 +59,11 @@ html, body {
   margin: 48px auto;
   background: var(--cream);
   border-radius: 3px;
-  box-shadow: 0 30px 90px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.15);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 168, 76, 0.15);
   overflow: hidden;
 }
 
-/* ── FORM HEADER ── */
+/* es el header del formulario*/
 .form-header {
   background: var(--navy-mid);
   padding: 36px 48px 28px;
@@ -97,7 +71,7 @@ html, body {
 }
 
 .form-label-top {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 9px;
   letter-spacing: 4px;
   color: var(--gold);
@@ -106,7 +80,7 @@ html, body {
 }
 
 .form-title {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-serif);
   font-size: 32px;
   font-weight: 700;
   color: var(--white);
@@ -114,10 +88,10 @@ html, body {
 }
 
 .form-subtitle {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 14px;
   font-style: italic;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255, 255, 255, 0.55);
   margin-top: 8px;
 }
 
@@ -128,7 +102,7 @@ html, body {
   margin: 18px auto 0;
 }
 
-/* ── FORM BODY ── */
+/* acá empieza el form */
 .form-body {
   padding: 40px 48px 44px;
   display: grid;
@@ -136,15 +110,15 @@ html, body {
   gap: 22px 28px;
 }
 
-/* ── FIELD GROUP SIZES ── */
-.field-group        { display: flex; flex-direction: column; gap: 7px; }
-.field-group.full   { grid-column: 1 / -1; }
-.field-group.half   { grid-column: span 1; }
-.field-group.third  { grid-column: span 1; }
+/* esto se encarga de las posiciones del los campos dentro del formulario */
+.field-group       { display: flex; flex-direction: column; gap: 7px; }
+.field-group.full  { grid-column: 1 / -1; }
+.field-group.half  { grid-column: span 1; }
+.field-group.third { grid-column: span 1; }
 
-/* ── LABELS ── */
+/* esto le da un diseño a los campos de los labels */
 .campo-label {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 2.5px;
@@ -152,34 +126,36 @@ html, body {
   color: var(--navy);
 }
 
-/* ── INPUTS ── */
+/* y esto le da un diseño a los campos de los inputs*/
 .campo-input {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 15px;
   color: var(--text-body);
   background: var(--white);
-  border: 1px solid rgba(26,39,68,0.18);
-  border-bottom: 2px solid rgba(26,39,68,0.2);
+  border: 1px solid rgba(26, 39, 68, 0.18);
+  border-bottom: 2px solid rgba(26, 39, 68, 0.2);
   border-radius: 2px;
   padding: 10px 14px;
   outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
   width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.field-input:focus {
+/* focus lo que hace en este caso es marcar debajo de los input una lína dorada */
+.campo-input:focus {
   border-color: var(--gold);
   border-bottom-color: var(--gold);
-  box-shadow: 0 2px 0 0 var(--gold), 0 4px 16px rgba(201,168,76,0.1);
+  box-shadow: 0 2px 0 0 var(--gold), 0 4px 16px rgba(201, 168, 76, 0.1);
 }
-
-.field-input::placeholder {
-  color: rgba(107,107,107,0.5);
+/* esto le da el color y la tipografía al ejemplo dentro del input antes de escribir */
+.campo-input::placeholder {
+  color: rgba(107, 107, 107, 0.5);
   font-style: italic;
 }
 
-/* Select */
-.field-select {
+/* cambia el estilo del cursor cuando está sobre el desplegable de categorías. Esto me dio un poco de problemas cuando lo hacía porque le habia puesto otro class a la etiqueta <select> y como no queria
+cambiar todo, entontré que podía ponerle 2 class con un espacio :) */
+.campo-select {
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%231a2744'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -187,39 +163,22 @@ html, body {
   cursor: pointer;
 }
 
-/* Textareas */
-.field-textarea {
-  resize: vertical;
-  line-height: 1.6;
-}
-.field-textarea.short { min-height: 90px; }
-.field-textarea.tall  { min-height: 130px; }
-
-/* Char counter */
-.char-count {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 11px;
-  letter-spacing: 1px;
-  color: var(--text-muted);
-  text-align: right;
-}
-
-/* ── IMAGE UPLOAD ROW ── */
+/* cambia la posición del campo Img Destacada (la imagen "celeste" que hay antes de incertar una imagen)*/
 .image-row {
   display: flex;
   gap: 16px;
   align-items: stretch;
 }
-
+/* esto es lo mismo que con la Img Destacada*/
 .gallery-row {
   display: flex;
   gap: 16px;
   align-items: center;
 }
 
-/* Upload button */
+/* esto cambia los estilos y visualizaciones de los botones de "subir img", tanto de la img destacada como las de la galeria*/
 .btn-upload {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -235,11 +194,11 @@ html, body {
   justify-content: center;
   gap: 4px;
   min-width: 120px;
-  transition: background 0.2s, transform 0.1s;
   white-space: nowrap;
+  transition: background 0.2s, transform 0.1s;
 }
-.btn-upload:hover   { background: var(--green-hover); }
-.btn-upload:active  { transform: scale(0.97); }
+.btn-upload:hover  { background: var(--green-hover); } /* es un detalle que pusimos para que haga como una sombra cuando apollas el mouse */
+.btn-upload:active { transform: scale(0.97); } /* y este es otro detalle que se nota cuando dejas apretado el botón, se "hunde" un poquito */
 
 .upload-icon {
   font-size: 18px;
@@ -250,20 +209,20 @@ html, body {
 .img-preview {
   flex: 1;
   min-height: 100px;
-  background: #b8d8e8;
+  background: var(--img-bg);
   border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border: 1px solid rgba(26,39,68,0.1);
+  border: 1px solid rgba(26, 39, 68, 0.1);
 }
 
 .preview-placeholder {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 14px;
   font-style: italic;
-  color: rgba(26,39,68,0.5);
+  color: rgba(26, 39, 68, 0.5);
 }
 
 .img-preview img {
@@ -272,7 +231,28 @@ html, body {
   object-fit: cover;
 }
 
-/* Gallery thumbnails */
+#previewPortada {
+  position: relative;
+}
+
+#btnBorrarPortada {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Gallery thumbnails (miniaturas de previsualización al subir) */
 .gallery-grid {
   display: flex;
   gap: 8px;
@@ -284,17 +264,17 @@ html, body {
   aspect-ratio: 1;
   min-width: 60px;
   max-width: 90px;
-  background: #b8d8e8;
+  background: var(--img-bg);
   border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(26,39,68,0.1);
+  border: 1px solid rgba(26, 39, 68, 0.1);
   overflow: hidden;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 11px;
   font-style: italic;
-  color: rgba(26,39,68,0.45);
+  color: rgba(26, 39, 68, 0.45);
   transition: border-color 0.2s;
 }
 
@@ -314,18 +294,17 @@ html, body {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  min-height: 0;
   margin-top: 2px;
 }
 
 .tag {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 11px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--navy);
   background: var(--cream-dark);
-  border: 1px solid rgba(201,168,76,0.4);
+  border: 1px solid rgba(201, 168, 76, 0.4);
   border-radius: 2px;
   padding: 4px 10px;
   display: flex;
@@ -345,16 +324,16 @@ html, body {
 
 /* ── BUTTONS ROW ── */
 .buttons-row {
-  flex-direction: row !important;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-top: 8px;
   padding-top: 20px;
-  border-top: 1px solid rgba(26,39,68,0.1);
+  border-top: 1px solid rgba(26, 39, 68, 0.1);
 }
 
 .btn {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 2.5px;
@@ -370,10 +349,10 @@ html, body {
 .btn-cancel {
   background: transparent;
   color: var(--text-muted);
-  border: 1px solid rgba(107,107,107,0.3);
+  border: 1px solid rgba(107, 107, 107, 0.3);
 }
 .btn-cancel:hover {
-  background: rgba(107,107,107,0.08);
+  background: rgba(107, 107, 107, 0.08);
   color: var(--text-body);
 }
 
@@ -383,7 +362,7 @@ html, body {
 }
 .btn-draft:hover {
   background: var(--green-hover);
-  box-shadow: 0 4px 16px rgba(58,125,68,0.3);
+  box-shadow: 0 4px 16px rgba(58, 125, 68, 0.3);
 }
 
 .btn-publish {
@@ -397,65 +376,17 @@ html, body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, transparent 40%, rgba(201,168,76,0.15));
+  background: linear-gradient(135deg, transparent 40%, rgba(201, 168, 76, 0.15));
   pointer-events: none;
 }
 .btn-publish:hover {
   background: var(--navy-light);
-  box-shadow: 0 4px 20px rgba(201,168,76,0.25);
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.25);
 }
 
-/* ── FOOTER ── */
-.page-footer {
-  background: var(--navy);
-  padding: 10px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 9px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
-  border-top: 1px solid rgba(201,168,76,0.15);
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 640px) {
-  .form-body { padding: 28px 24px 32px; gap: 18px; }
-  .form-header { padding: 28px 24px 22px; }
-  .topbar { padding: 12px 20px; }
-  .topbar-back { display: none; }
-  .buttons-row { flex-direction: column !important; gap: 10px; }
-  .btn { width: 100%; text-align: center; }
-  .gallery-grid { overflow-x: auto; }
-}
-
-#previewPortada {
-  position: relative;
-  display: 1;
-}
-
-#btnBorrarPortada {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 28px;
-  height: 28px;
-  font-size: 14px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Estilos base del editor Quill */
+/* ── EDITOR QUILL ── */
 #editorContenido .ql-editor {
-  font-family: Arial, sans-serif;
+  font-family: var(--font-body);
   font-size: 12px;
   line-height: 1.5;
   text-align: justify;
@@ -464,4 +395,40 @@ html, body {
 /* Sangría en primera línea de cada párrafo */
 #editorContenido .ql-editor p {
   text-indent: 1em;
+}
+
+/* ── FOOTER ── */
+.page-footer {
+  background: var(--navy);
+  padding: 10px clamp(24px, 4vw, 40px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(201, 168, 76, 0.15);
+}
+
+/* ════════════════════════════════════════════════════════
+   RESPONSIVE — solo pantallas de escritorio
+════════════════════════════════════════════════════════ */
+
+/* ── NOTEBOOKS / MONITORES CHICOS (≤1024px) ── */
+@media (max-width: 1024px) {
+  .form-container {
+    margin: 28px auto;
+    max-width: 92%;
+  }
+
+  .form-body {
+    grid-template-columns: 1fr;
+  }
+
+  .field-group.half,
+  .field-group.third {
+    grid-column: 1 / -1;
+  }
 }

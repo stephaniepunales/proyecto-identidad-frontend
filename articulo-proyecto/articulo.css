@@ -1,50 +1,26 @@
-/* ══════════════════════════════════════
-   IDENTIDAD — Vista de Artículo
-   Gama de colores de la revista
-══════════════════════════════════════ */
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --navy:       #1a2744;
-  --navy-mid:   #243152;
-  --navy-light: #2d3d63;
-  --gold:       #c9a84c;
-  --gold-light: #e2c97e;
-  --cream:      #f5f0e8;
-  --cream-dark: #ede5d5;
-  --white:      #ffffff;
-  --text-body:  #2a2a2a;
-  --text-muted: #6b6b6b;
-  --img-bg:     #b8d0e3;
-}
-
 html, body {
-  width: 100%;
-  min-height: 100vh;
   background: linear-gradient(135deg, #0d1626 0%, #1a2744 40%, #0f1e38 100%);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  color: var(--text-body);
 }
 
 /* ── TOPBAR ── */
 .topbar {
   background: var(--navy);
-  padding: 25px 40px;
+  padding: 25px clamp(24px, 4vw, 40px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(201,168,76,0.2);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: transform 0.3s ease;
 }
 
 .topbar-back {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 15px;
   letter-spacing: 2px;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   cursor: pointer;
   transition: color 0.2s;
@@ -53,17 +29,16 @@ html, body {
 .topbar-back:hover { color: var(--gold); }
 
 .topbar-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 70px;
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 5vw, 70px);
   font-weight: 700;
   letter-spacing: 5px;
   color: var(--white);
-  text-align: center
-  ;
+  text-align: center;
 }
 
 .topbar-date {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 15px;
   letter-spacing: 3px;
   color: var(--gold);
@@ -82,8 +57,8 @@ html, body {
   background: var(--cream);
   width: 100%;
   max-width: 1200px;
-  padding: 52px 72px 56px;
-  box-shadow: 0 30px 90px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.15);
+  padding: clamp(36px, 4vw, 52px) clamp(32px, 6vw, 72px) clamp(40px, 5vw, 56px);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 168, 76, 0.15);
   border-radius: 3px;
 }
 
@@ -93,10 +68,12 @@ html, body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .meta-category {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 20px;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -105,7 +82,7 @@ html, body {
 }
 
 .meta-date {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 20px;
   letter-spacing: 2px;
   color: var(--text-muted);
@@ -119,8 +96,8 @@ html, body {
 }
 
 .article-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 70px;
+  font-family: var(--font-serif);
+  font-size: clamp(38px, 5.5vw, 70px);
   font-weight: 900;
   color: var(--navy);
   line-height: 1.1;
@@ -128,7 +105,7 @@ html, body {
 }
 
 .article-subtitle {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-serif);
   font-size: 20px;
   font-weight: 400;
   font-style: italic;
@@ -151,14 +128,14 @@ html, body {
   border-radius: 50%;
   background: var(--navy-light);
   color: var(--gold-light);
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-serif);
   font-size: 18px;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 2px solid rgba(201,168,76,0.3);
+  border: 2px solid rgba(201, 168, 76, 0.3);
 }
 
 .author-info {
@@ -168,7 +145,7 @@ html, body {
 }
 
 .author-name {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 20px;
   font-weight: 600;
   color: var(--navy);
@@ -176,7 +153,7 @@ html, body {
 }
 
 .author-role {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 11px;
   font-style: italic;
   color: var(--text-muted);
@@ -198,31 +175,30 @@ html, body {
 
 .img-placeholder-main {
   width: 100%;
-
   background: var(--img-bg);
   border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 16px;
   font-style: italic;
-  color: rgba(26,39,68,0.4);
-  border: 1px solid rgba(26,39,68,0.08);
+  color: rgba(26, 39, 68, 0.4);
+  border: 1px solid rgba(26, 39, 68, 0.08);
   overflow: hidden;
 }
 
-/* Imagen destacada — se muestra completa respetando sus proporciones reales */
+/* La imagen destacada se muestra completa, respetando proporciones reales */
 .img-placeholder-main img {
   width: 100%;
   height: auto;
   display: block;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 1px 4px rgba(0,0,0,0.10);
-  border: 1px solid rgba(201,168,76,0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18), 0 1px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(201, 168, 76, 0.25);
 }
 
 figcaption {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 12px;
   font-style: italic;
   color: var(--text-muted);
@@ -239,16 +215,9 @@ figcaption {
   gap: 18px;
 }
 
-.article-lead {
-  font-family: Arial, sans-serif;
-  font-size: 20px;
-  line-height: 1.5;
-  text-align: justify;
-  text-indent: 1em;
-}
-
+.article-lead,
 .article-content p {
-  font-family: Arial, sans-serif;
+  font-family: var(--font-body);
   font-size: 20px;
   color: var(--text-body);
   line-height: 1.5;
@@ -265,13 +234,13 @@ figcaption {
 }
 
 .tag {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--navy);
   background: var(--cream-dark);
-  border: 1px solid rgba(201,168,76,0.4);
+  border: 1px solid rgba(201, 168, 76, 0.4);
   border-radius: 2px;
   padding: 5px 12px;
 }
@@ -282,7 +251,7 @@ figcaption {
 }
 
 .gallery-label {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 10px;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -303,23 +272,23 @@ figcaption {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(26,39,68,0.08);
-  font-family: 'Cormorant Garamond', serif;
+  border: 1px solid rgba(26, 39, 68, 0.08);
+  font-family: var(--font-display);
   font-size: 12px;
   font-style: italic;
-  color: rgba(26,39,68,0.4);
+  color: rgba(26, 39, 68, 0.4);
   transition: border-color 0.2s, transform 0.2s;
   cursor: pointer;
   overflow: hidden;
 }
 
-/* Imágenes de galería — altura automática, se ven completas */
+/* Imágenes de galería: altura automática, se ven completas */
 .gallery-thumb img {
   width: 100%;
   height: auto;
   display: block;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15), 0 1px 3px rgba(0,0,0,0.08);
-  border: 1px solid rgba(201,168,76,0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(201, 168, 76, 0.2);
 }
 
 .gallery-thumb:hover {
@@ -330,28 +299,41 @@ figcaption {
 /* ── FOOTER ── */
 .page-footer {
   background: var(--navy);
-  padding: 30px 40px;
+  padding: 30px clamp(24px, 4vw, 40px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 15px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
-  border-top: 1px solid rgba(201,168,76,0.15);
+  color: rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(201, 168, 76, 0.15);
 }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 640px) {
-  .article { padding: 32px 24px 40px; }
-  .article-title { font-size: 32px; }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-  .topbar { padding: 12px 20px; }
-  .topbar-back { display: none; }
+/* ════════════════════════════════════════════════════════
+   RESPONSIVE — solo pantallas de escritorio
+   (notebooks chicas, monitores estándar y monitores anchos)
+════════════════════════════════════════════════════════ */
+
+/* ── NOTEBOOKS / MONITORES CHICOS (≤1200px) ── */
+@media (max-width: 1200px) {
+  .article {
+    padding: 44px 48px 48px;
+  }
+
+  .gallery-grid {
+    gap: 20px;
+  }
 }
 
-.topbar {
-  /* todo lo que ya tenés, más esto: */
-  transition: transform 0.3s ease;
+/* ── MONITORES MUY ANCHOS (≥1800px) ── */
+@media (min-width: 1800px) {
+  .article-wrapper {
+    padding: 64px 24px 80px;
+  }
+
+  .article {
+    max-width: 1320px;
+  }
 }

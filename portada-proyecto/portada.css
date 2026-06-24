@@ -1,3 +1,8 @@
+/* ══════════════════════════════════════
+   IDENTIDAD — Portada / Tapa de revista
+   Requiere variables.css cargado antes
+══════════════════════════════════════ */
+
 html, body {
   background: var(--navy);
   overflow-x: hidden;
@@ -24,19 +29,6 @@ html, body {
   overflow: hidden;
   box-shadow: 0 40px 120px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(201, 168, 76, 0.2);
   position: relative;
-}
-
-/* Sombra de lomo entre las dos páginas */
-.magazine::after {
-  content: '';
-  position: absolute;
-  left: 720px;
-  top: 0;
-  bottom: 0;
-  width: 6px;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.4), transparent);
-  z-index: 10;
-  pointer-events: none;
 }
 
 /* ══════════════════════════════════════

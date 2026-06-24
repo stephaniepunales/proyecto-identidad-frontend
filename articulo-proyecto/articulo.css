@@ -3,8 +3,8 @@ html, body {
 }
 
 /* ── TOPBAR ── */
-.topbar {
-  background: var(--navy);
+.barra-superior {
+  background: var(--azul);
   padding: 25px clamp(24px, 4vw, 40px);
   display: flex;
   align-items: center;
@@ -16,8 +16,8 @@ html, body {
   transition: transform 0.3s ease;
 }
 
-.topbar-back {
-  font-family: var(--font-display);
+.volver-barra {
+  font-family: var(--fuente-display);
   font-size: 15px;
   letter-spacing: 2px;
   color: rgba(255, 255, 255, 0.5);
@@ -26,35 +26,35 @@ html, body {
   transition: color 0.2s;
   text-align: left;
 }
-.topbar-back:hover { color: var(--gold); }
+.volver-barra:hover { color: var(--dorado); }
 
-.topbar-title {
-  font-family: var(--font-serif);
+.titulo-barra {
+  font-family: var(--fuente-serif);
   font-size: clamp(40px, 5vw, 70px);
   font-weight: 700;
   letter-spacing: 5px;
-  color: var(--white);
+  color: var(--blanco);
   text-align: center;
 }
 
-.topbar-date {
-  font-family: var(--font-display);
+.fecha-barra {
+  font-family: var(--fuente-display);
   font-size: 15px;
   letter-spacing: 3px;
-  color: var(--gold);
+  color: var(--dorado);
   text-transform: uppercase;
 }
 
 /* ── WRAPPER ── */
-.article-wrapper {
+.envoltorio-articulo {
   display: flex;
   justify-content: center;
   padding: 52px 24px 64px;
 }
 
 /* ── ARTICLE CARD ── */
-.article {
-  background: var(--cream);
+.articulo {
+  background: var(--crema);
   width: 100%;
   max-width: 1200px;
   padding: clamp(36px, 4vw, 52px) clamp(32px, 6vw, 72px) clamp(40px, 5vw, 56px);
@@ -63,7 +63,7 @@ html, body {
 }
 
 /* ── META TOP: categoría + fecha ── */
-.article-meta-top {
+.meta-superior-articulo {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -72,63 +72,63 @@ html, body {
   gap: 8px;
 }
 
-.meta-category {
-  font-family: var(--font-display);
+.categoria-meta {
+  font-family: var(--fuente-display);
   font-size: 20px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--dorado);
   font-weight: 600;
 }
 
-.meta-date {
-  font-family: var(--font-display);
+.fecha-meta {
+  font-family: var(--fuente-display);
   font-size: 20px;
   letter-spacing: 2px;
-  color: var(--text-muted);
+  color: var(--texto-suave);
   font-style: italic;
 }
 
 /* ── HEADING ── */
-.article-heading {
+.encabezado-articulo {
   text-align: center;
   margin-bottom: 24px;
 }
 
-.article-title {
-  font-family: var(--font-serif);
+.titulo-articulo {
+  font-family: var(--fuente-serif);
   font-size: clamp(38px, 5.5vw, 70px);
   font-weight: 900;
-  color: var(--navy);
+  color: var(--azul);
   line-height: 1.1;
   letter-spacing: 0.5px;
 }
 
-.article-subtitle {
-  font-family: var(--font-serif);
+.subtitulo-articulo {
+  font-family: var(--fuente-serif);
   font-size: 20px;
   font-weight: 400;
   font-style: italic;
-  color: var(--text-muted);
+  color: var(--texto-suave);
   margin-top: 8px;
   letter-spacing: 0.5px;
 }
 
 /* ── AUTHOR ── */
-.article-author {
+.autor-articulo {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 20px;
 }
 
-.author-avatar {
+.avatar-autor {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--navy-light);
-  color: var(--gold-light);
-  font-family: var(--font-serif);
+  background: var(--azul-claro);
+  color: var(--dorado-claro);
+  font-family: var(--fuente-serif);
   font-size: 18px;
   font-weight: 700;
   display: flex;
@@ -138,49 +138,41 @@ html, body {
   border: 2px solid rgba(201, 168, 76, 0.3);
 }
 
-.author-info {
+.info-autor {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
 
-.author-name {
-  font-family: var(--font-display);
+.nombre-autor {
+  font-family: var(--fuente-display);
   font-size: 20px;
   font-weight: 600;
-  color: var(--navy);
+  color: var(--azul);
   letter-spacing: 0.5px;
 }
 
-.author-role {
-  font-family: var(--font-display);
-  font-size: 11px;
-  font-style: italic;
-  color: var(--text-muted);
-  letter-spacing: 1px;
-}
-
 /* ── GOLD RULE ── */
-.gold-rule {
+.linea-dorada {
   width: 48px;
   height: 1px;
-  background: var(--gold);
+  background: var(--dorado);
   margin: 20px 0;
 }
 
 /* ── IMAGEN DESTACADA ── */
-.img-destacada {
+.imagen-destacada {
   margin: 28px 0 32px;
 }
 
-.img-placeholder-main {
+.marcador-imagen-principal {
   width: 100%;
-  background: var(--img-bg);
+  background: var(--fondo-imagen);
   border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display);
+  font-family: var(--fuente-display);
   font-size: 16px;
   font-style: italic;
   color: rgba(26, 39, 68, 0.4);
@@ -189,7 +181,7 @@ html, body {
 }
 
 /* La imagen destacada se muestra completa, respetando proporciones reales */
-.img-placeholder-main img {
+.marcador-imagen-principal img {
   width: 100%;
   height: auto;
   display: block;
@@ -198,10 +190,10 @@ html, body {
 }
 
 figcaption {
-  font-family: var(--font-display);
+  font-family: var(--fuente-display);
   font-size: 12px;
   font-style: italic;
-  color: var(--text-muted);
+  color: var(--texto-suave);
   text-align: center;
   margin-top: 10px;
   letter-spacing: 0.5px;
@@ -209,71 +201,70 @@ figcaption {
 }
 
 /* ── ARTICLE CONTENT ── */
-.article-content {
+.contenido-articulo {
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
-.article-lead,
-.article-content p {
-  font-family: var(--font-body);
+.contenido-articulo p {
+  font-family: var(--fuente-cuerpo);
   font-size: 20px;
-  color: var(--text-body);
+  color: var(--texto-cuerpo);
   line-height: 1.5;
   text-align: justify;
   text-indent: 1em;
 }
 
 /* ── TAGS ── */
-.article-tags {
+.etiquetas-articulo {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 28px;
 }
 
-.tag {
-  font-family: var(--font-display);
+.etiqueta {
+  font-family: var(--fuente-display);
   font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--navy);
-  background: var(--cream-dark);
+  color: var(--azul);
+  background: var(--crema-oscuro);
   border: 1px solid rgba(201, 168, 76, 0.4);
   border-radius: 2px;
   padding: 5px 12px;
 }
 
 /* ── GALLERY ── */
-.gallery-section {
+.seccion-galeria {
   margin: 32px 0;
 }
 
-.gallery-label {
-  font-family: var(--font-display);
+.etiqueta-galeria {
+  font-family: var(--fuente-display);
   font-size: 10px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--dorado);
   font-weight: 600;
   margin-bottom: 14px;
 }
 
-.gallery-grid {
+.grilla-galeria {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
 }
 
-.gallery-thumb {
-  background: var(--img-bg);
+.miniatura-galeria {
+  background: var(--fondo-imagen);
   border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(26, 39, 68, 0.08);
-  font-family: var(--font-display);
+  font-family: var(--fuente-display);
   font-size: 12px;
   font-style: italic;
   color: rgba(26, 39, 68, 0.4);
@@ -283,7 +274,7 @@ figcaption {
 }
 
 /* Imágenes de galería: altura automática, se ven completas */
-.gallery-thumb img {
+.miniatura-galeria img {
   width: 100%;
   height: auto;
   display: block;
@@ -291,19 +282,19 @@ figcaption {
   border: 1px solid rgba(201, 168, 76, 0.2);
 }
 
-.gallery-thumb:hover {
-  border-color: var(--gold);
+.miniatura-galeria:hover {
+  border-color: var(--dorado);
   transform: scale(1.03);
 }
 
 /* ── FOOTER ── */
-.page-footer {
-  background: var(--navy);
+.pie-pagina {
+  background: var(--azul);
   padding: 30px clamp(24px, 4vw, 40px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: var(--font-display);
+  font-family: var(--fuente-display);
   font-size: 15px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
@@ -318,22 +309,22 @@ figcaption {
 
 /* ── NOTEBOOKS / MONITORES CHICOS (≤1200px) ── */
 @media (max-width: 1200px) {
-  .article {
+  .articulo {
     padding: 44px 48px 48px;
   }
 
-  .gallery-grid {
+  .grilla-galeria {
     gap: 20px;
   }
 }
 
 /* ── MONITORES MUY ANCHOS (≥1800px) ── */
 @media (min-width: 1800px) {
-  .article-wrapper {
+  .envoltorio-articulo {
     padding: 64px 24px 80px;
   }
 
-  .article {
+  .articulo {
     max-width: 1320px;
   }
 }

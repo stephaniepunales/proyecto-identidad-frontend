@@ -2,7 +2,7 @@ const API_URL = "http://localhost:3000"; // Guarda la dirección del servidor �
 
 document.addEventListener("DOMContentLoaded", () => { // Espera a que todo el HTML esté cargado antes de ejecutar el JS
 
-   const btnBack = document.getElementById("btnback");
+   const btnBack = document.getElementById("btnVolver");
 
   btnBack.addEventListener("click", () => {
   window.location.href = "../portada-proyecto/portada.html";
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => { // Espera a que todo el HT
         imgPortada.src = base64;                 // La muestra en el preview
         imgPortada.hidden = false;               // Muestra la imagen que estaba oculta
         imgPortada.dataset.base64 = base64;      // Guarda el Base64 en el elemento para leerlo al publicar
-        previewPortada.querySelector('.preview-placeholder').hidden = true; // Oculta el texto "Img Destacada"
+        previewPortada.querySelector('.marcador-vista-previa').hidden = true; // Oculta el texto "Img Destacada"
 
         const btnBorrar = document.createElement('button'); // Crea el botón X
         btnBorrar.textContent = '✕';
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => { // Espera a que todo el HT
           imgPortada.src = '';
           imgPortada.hidden = true;
           imgPortada.dataset.base64 = '';        // Limpia el Base64 guardado
-          previewPortada.querySelector('.preview-placeholder').hidden = false;
+          previewPortada.querySelector('.marcador-vista-previa').hidden = false;
           inputPortada.value = '';
           btnBorrar.remove();
         });
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => { // Espera a que todo el HT
 
   const btnGaleria = document.getElementById('btnGaleria');     // Agarra el botón "Agrega imgs +"
   const inputGaleria = document.getElementById('inputGaleria'); // Agarra el input file oculto de la galería
-  const galleryGrid = document.getElementById('galleryGrid');   // Agarra el contenedor de los thumbs
+  const galleryGrid = document.getElementById('grillaGaleria');   // Agarra el contenedor de los thumbs
   const galeriaBase64 = [];                                     // Array para guardar las 4 imágenes en Base64
 
   btnGaleria.addEventListener('click', function() {
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => { // Espera a que todo el HT
       alert('Solo se permiten máximo 4 imágenes.');
     }
 
-    const thumbs = galleryGrid.querySelectorAll('.gallery-thumb');
+    const thumbs = galleryGrid.querySelectorAll('.miniatura-galeria');
 
     for (let i = 0; i < 4; i++) {
       const thumb = thumbs[i];
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => { // Espera a que todo el HT
 
   // ── PUBLICAR ARTÍCULO ─────────────────────────────────────
 
-  const btnPublicar = document.querySelector('.btn-publish');
+  const btnPublicar = document.querySelector('.boton-publicar');
 
   btnPublicar.addEventListener('click', async function() {
 

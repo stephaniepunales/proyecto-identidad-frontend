@@ -38,16 +38,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Error al obtener el clima:", error);
     elCiudad.textContent = "No se pudo cargar el clima."; // mensaje si no hay conexión
   }
-});
 
-const API_URL = "http://localhost:3000";
-
-document.addEventListener("DOMContentLoaded", () => {
+  // Carga de artículos
   cargarArticulos();
 
   // Actualiza automáticamente cada 3 segundos
   setInterval(cargarArticulos, 3000);
 });
+
+const API_URL = "http://localhost:3000";
 
 async function cargarArticulos() {
   try {
@@ -65,12 +64,9 @@ async function cargarArticulos() {
 
     articulos.forEach((articulo, index) => {
 
-      const tarjeta = document.createElement("a");
+      const tarjeta = document.createElement("div");
 
-      tarjeta.href = `../articulo-proyecto/articulo.html?id=${articulo.id}`;
-
-      tarjeta.classList.add("article-card");
-      tarjeta.classList.add("article-link");
+      tarjeta.classList.add("tarjeta-articulo");
 
       // Saca etiquetas HTML del contenido y lo acorta
       const descripcionLimpia =
@@ -81,26 +77,26 @@ async function cargarArticulos() {
           : "";
 
       tarjeta.innerHTML = `
-        <a class="article-link"
+        <a class="enlace-articulo"
            href="../articulo-proyecto/articulo.html?id=${articulo.id}">
 
-          <span class="article-number">
+          <span class="numero-articulo">
             ${String(index + 1).padStart(2, "0")}
           </span>
 
-          <div class="article-category">
+          <div class="categoria-articulo">
             ${articulo.categoria || ""}
           </div>
 
-          <h3 class="article-title">
+          <h3 class="titulo-articulo">
             ${articulo.titulo || ""}
             <br>
             <em>${articulo.subtitulo || ""}</em>
           </h3>
 
-          <div class="article-rule"></div>
+          <div class="regla-articulo"></div>
 
-          <p class="article-desc">
+          <p class="descripcion-articulo">
             ${descripcionLimpia}...
           </p>
 

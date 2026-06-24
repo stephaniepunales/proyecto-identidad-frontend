@@ -2,31 +2,31 @@
 
 :root {
   /* Paleta */
-  --navy:        #1a2744;
-  --navy-mid:    #243152;
-  --navy-light:  #2d3d63;
-  --gold:        #c9a84c;
-  --gold-light:  #e2c97e;
-  --cream:       #f5f0e8;
-  --cream-dark:  #ede5d5;
-  --white:       #ffffff;
+  --azul:        #1a2744;
+  --azul-medio:    #243152;
+  --azul-claro:  #2d3d63;
+  --dorado:        #c9a84c;
+  --dorado-claro:  #e2c97e;
+  --crema:       #f5f0e8;
+  --crema-oscuro:  #ede5d5;
+  --blanco:       #ffffff;
 
   /* Texto */
-  --text-body:   #2a2a2a;
-  --text-muted:  #6b6b6b;
+  --texto-cuerpo:   #2a2a2a;
+  --texto-suave:  #6b6b6b;
 
   /* Estados / acciones */
-  --green-btn:   #3a7d44;
-  --green-hover: #2e6337;
-  --red-soft:    #9b3a3a;
+  --verde-boton:   #3a7d44;
+  --verde-hover: #2e6337;
+  --rojo-suave:    #9b3a3a;
 
   /* Placeholders de imagen */
-  --img-bg:      #b8d0e3;
+  --fondo-imagen:      #b8d0e3;
 
   /* Tipografía */
-  --font-serif:   'Playfair Display', serif;
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body:    Arial, sans-serif;
+  --fuente-serif:   'Playfair Display', serif;
+  --fuente-display: 'Cormorant Garamond', Georgia, serif;
+  --fuente-cuerpo:    Arial, sans-serif;
 }
 
 *, *::before, *::after {
@@ -38,6 +38,6 @@
 html, body {
   width: 100%;
   min-height: 100vh;
-  font-family: var(--font-display);
-  color: var(--text-body);
+  font-family: var(--fuente-display);
+  color: var(--texto-cuerpo);
 }

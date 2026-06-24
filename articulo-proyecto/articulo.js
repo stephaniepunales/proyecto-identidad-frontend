@@ -2,10 +2,10 @@ const API_URL = "http://localhost:3000"; // Dirección del servidor
 
 document.addEventListener("DOMContentLoaded", async () => { // Espera a que el HTML cargue — async para usar await
 
-  const btnback = document.getElementById ("btnback");
+  const btnVolver = document.getElementById("btnVolver");
 
-btnback.addEventListener("click", () => {
-  history.back();
+btnVolver.addEventListener("click", () => {
+  window.location.href = "http://127.0.0.1:5500/portada-proyecto/portada.html";
 });
 
 
@@ -37,7 +37,7 @@ btnback.addEventListener("click", () => {
     document.getElementById('articulo-fecha').textContent     = articulo.fecha || '';
 
     // Muestra la primera letra del autor en el avatar en vez de la M hardcodeada
-    document.querySelector('.author-avatar').textContent = articulo.autor
+    document.querySelector('.avatar-autor').textContent = articulo.autor
       ? articulo.autor.charAt(0).toUpperCase()
       : '?';
 
@@ -48,7 +48,7 @@ btnback.addEventListener("click", () => {
     // 5. Muestra la imagen destacada si existe
     // Se reemplaza solo el placeholder interno para no perder el <figcaption>
     if (articulo.portada) {
-  const placeholder = document.querySelector('.img-placeholder-main');
+  const placeholder = document.querySelector('.marcador-imagen-principal');
   placeholder.innerHTML = '';
   placeholder.style.padding = '0';
   placeholder.style.background = 'none';
@@ -67,7 +67,7 @@ btnback.addEventListener("click", () => {
 
     // 6. Muestra la galería si hay imágenes
     if (articulo.galeria && articulo.galeria.length > 0) {
-  const thumbs = document.querySelectorAll('.gallery-section .gallery-thumb');
+  const thumbs = document.querySelectorAll('.seccion-galeria .miniatura-galeria');
 
   articulo.galeria.forEach((imagen, i) => {
     if (thumbs[i] && imagen) {
@@ -82,7 +82,7 @@ btnback.addEventListener("click", () => {
   }
 // ── HEADER QUE SE OCULTA AL HACER SCROLL ──────────────────
 
-const topbar = document.querySelector('.topbar');
+const topbar = document.querySelector('.barra-superior');
 let scrollAnterior = 0; // guarda la posición del scroll anterior para comparar
 
 window.addEventListener('scroll', function() {
@@ -99,5 +99,3 @@ window.addEventListener('scroll', function() {
   scrollAnterior = scrollActual; // actualiza la posición anterior
 });
 });
-
-

@@ -3,15 +3,15 @@ html, body {
 }
 
 /* el contenedor que envuelve todo el contenido visible*/
-.page-wrapper {
+.envoltorio-pagina {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
 /* topbar es parte del header */
-.topbar {
-  background: var(--navy);
+.barra-superior {
+  background: var(--azul);
   padding: 12px clamp(24px, 4vw, 40px);
   display: flex;
   align-items: center;
@@ -22,8 +22,8 @@ html, body {
   z-index: 100;
 }
 
-.topbar-back {
-  font-family: var(--font-display);
+.volver-barra {
+  font-family: var(--fuente-display);
   font-size: 11px;
   letter-spacing: 2px;
   color: rgba(255, 255, 255, 0.5);
@@ -32,78 +32,78 @@ html, body {
   transition: color 0.2s;
 }
 
-.topbar-back:hover { color: var(--gold); } /*El botón se pone dorado cuando el mouse esta encima*/
+.volver-barra:hover { color: var(--dorado); } /*El botón se pone dorado cuando el mouse esta encima*/
 
-.topbar-title {
-  font-family: var(--font-serif);
+.titulo-barra {
+  font-family: var(--fuente-serif);
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 5px;
-  color: var(--white);
+  color: var(--blanco);
   text-transform: uppercase;
 }
 
-.topbar-date {
-  font-family: var(--font-display);
+.fecha-barra {
+  font-family: var(--fuente-display);
   font-size: 11px;
   letter-spacing: 3px;
-  color: var(--gold);
+  color: var(--dorado);
   text-transform: uppercase;
 }
 
 /* es el main container donde empieza el formulario*/
-.form-container {
+.contenedor-formulario {
   flex: 1;
   max-width: 780px;
   width: 100%;
   margin: 48px auto;
-  background: var(--cream);
+  background: var(--crema);
   border-radius: 3px;
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 168, 76, 0.15);
   overflow: hidden;
 }
 
 /* es el header del formulario*/
-.form-header {
-  background: var(--navy-mid);
+.encabezado-formulario {
+  background: var(--azul-medio);
   padding: 36px 48px 28px;
   text-align: center;
 }
 
-.form-label-top {
-  font-family: var(--font-display);
+.etiqueta-superior-formulario {
+  font-family: var(--fuente-display);
   font-size: 9px;
   letter-spacing: 4px;
-  color: var(--gold);
+  color: var(--dorado);
   text-transform: uppercase;
   margin-bottom: 10px;
 }
 
-.form-title {
-  font-family: var(--font-serif);
+.titulo-formulario {
+  font-family: var(--fuente-serif);
   font-size: 32px;
   font-weight: 700;
-  color: var(--white);
+  color: var(--blanco);
   letter-spacing: 1px;
 }
 
-.form-subtitle {
-  font-family: var(--font-display);
+.subtitulo-formulario {
+  font-family: var(--fuente-display);
   font-size: 14px;
   font-style: italic;
   color: rgba(255, 255, 255, 0.55);
   margin-top: 8px;
 }
 
-.gold-rule {
+.linea-dorada {
   width: 48px;
   height: 1px;
-  background: var(--gold);
+  background: var(--dorado);
   margin: 18px auto 0;
 }
 
 /* acá empieza el form */
-.form-body {
+.cuerpo-formulario {
   padding: 40px 48px 44px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -111,27 +111,27 @@ html, body {
 }
 
 /* esto se encarga de las posiciones del los campos dentro del formulario */
-.field-group       { display: flex; flex-direction: column; gap: 7px; }
-.field-group.full  { grid-column: 1 / -1; }
-.field-group.half  { grid-column: span 1; }
-.field-group.third { grid-column: span 1; }
+.grupo-campo       { display: flex; flex-direction: column; gap: 7px; }
+.grupo-campo.completo  { grid-column: 1 / -1; }
+.grupo-campo.mitad  { grid-column: span 1; }
+.grupo-campo.tercio { grid-column: span 1; }
 
 /* esto le da un diseño a los campos de los labels */
-.campo-label {
-  font-family: var(--font-display);
+.etiqueta-campo {
+  font-family: var(--fuente-display);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--navy);
+  color: var(--azul);
 }
 
 /* y esto le da un diseño a los campos de los inputs*/
-.campo-input {
-  font-family: var(--font-display);
+.entrada-campo {
+  font-family: var(--fuente-display);
   font-size: 15px;
-  color: var(--text-body);
-  background: var(--white);
+  color: var(--texto-cuerpo);
+  background: var(--blanco);
   border: 1px solid rgba(26, 39, 68, 0.18);
   border-bottom: 2px solid rgba(26, 39, 68, 0.2);
   border-radius: 2px;
@@ -142,20 +142,20 @@ html, body {
 }
 
 /* focus lo que hace en este caso es marcar debajo de los input una lína dorada */
-.campo-input:focus {
-  border-color: var(--gold);
-  border-bottom-color: var(--gold);
-  box-shadow: 0 2px 0 0 var(--gold), 0 4px 16px rgba(201, 168, 76, 0.1);
+.entrada-campo:focus {
+  border-color: var(--dorado);
+  border-bottom-color: var(--dorado);
+  box-shadow: 0 2px 0 0 var(--dorado), 0 4px 16px rgba(201, 168, 76, 0.1);
 }
 /* esto le da el color y la tipografía al ejemplo dentro del input antes de escribir */
-.campo-input::placeholder {
+.entrada-campo::placeholder {
   color: rgba(107, 107, 107, 0.5);
   font-style: italic;
 }
 
 /* cambia el estilo del cursor cuando está sobre el desplegable de categorías. Esto me dio un poco de problemas cuando lo hacía porque le habia puesto otro class a la etiqueta <select> y como no queria
 cambiar todo, entontré que podía ponerle 2 class con un espacio :) */
-.campo-select {
+.seleccion-campo {
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%231a2744'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -164,26 +164,26 @@ cambiar todo, entontré que podía ponerle 2 class con un espacio :) */
 }
 
 /* cambia la posición del campo Img Destacada (la imagen "celeste" que hay antes de incertar una imagen)*/
-.image-row {
+.fila-imagen {
   display: flex;
   gap: 16px;
   align-items: stretch;
 }
 /* esto es lo mismo que con la Img Destacada*/
-.gallery-row {
+.fila-galeria {
   display: flex;
   gap: 16px;
   align-items: center;
 }
 
 /* esto cambia los estilos y visualizaciones de los botones de "subir img", tanto de la img destacada como las de la galeria*/
-.btn-upload {
-  font-family: var(--font-display);
+.boton-subir {
+  font-family: var(--fuente-display);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 1px;
-  color: var(--white);
-  background: var(--green-btn);
+  color: var(--blanco);
+  background: var(--verde-boton);
   border: none;
   border-radius: 2px;
   padding: 12px 20px;
@@ -197,19 +197,19 @@ cambiar todo, entontré que podía ponerle 2 class con un espacio :) */
   white-space: nowrap;
   transition: background 0.2s, transform 0.1s;
 }
-.btn-upload:hover  { background: var(--green-hover); } /* es un detalle que pusimos para que haga como una sombra cuando apollas el mouse */
-.btn-upload:active { transform: scale(0.97); } /* y este es otro detalle que se nota cuando dejas apretado el botón, se "hunde" un poquito */
+.boton-subir:hover  { background: var(--verde-hover); } /* es un detalle que pusimos para que haga como una sombra cuando apollas el mouse */
+.boton-subir:active { transform: scale(0.97); } /* y este es otro detalle que se nota cuando dejas apretado el botón, se "hunde" un poquito */
 
-.upload-icon {
+.icono-subir {
   font-size: 18px;
   line-height: 1;
 }
 
 /* Main image preview */
-.img-preview {
+.vista-previa-imagen {
   flex: 1;
   min-height: 100px;
-  background: var(--img-bg);
+  background: var(--fondo-imagen);
   border-radius: 2px;
   display: flex;
   align-items: center;
@@ -218,14 +218,14 @@ cambiar todo, entontré que podía ponerle 2 class con un espacio :) */
   border: 1px solid rgba(26, 39, 68, 0.1);
 }
 
-.preview-placeholder {
-  font-family: var(--font-display);
+.marcador-vista-previa {
+  font-family: var(--fuente-display);
   font-size: 14px;
   font-style: italic;
   color: rgba(26, 39, 68, 0.5);
 }
 
-.img-preview img {
+.vista-previa-imagen img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -242,7 +242,7 @@ cambiar todo, entontré que podía ponerle 2 class con un espacio :) */
   width: 28px;
   height: 28px;
   background-color: rgba(0, 0, 0, 0.6);
-  color: var(--white);
+  color: var(--blanco);
   border: none;
   border-radius: 50%;
   font-size: 14px;
@@ -253,77 +253,44 @@ cambiar todo, entontré que podía ponerle 2 class con un espacio :) */
 }
 
 /* Gallery thumbnails (miniaturas de previsualización al subir) */
-.gallery-grid {
+.grilla-galeria {
   display: flex;
   gap: 8px;
   flex: 1;
 }
 
-.gallery-thumb {
+.miniatura-galeria {
   flex: 1;
   aspect-ratio: 1;
   min-width: 60px;
   max-width: 90px;
-  background: var(--img-bg);
+  background: var(--fondo-imagen);
   border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(26, 39, 68, 0.1);
   overflow: hidden;
-  font-family: var(--font-display);
+  font-family: var(--fuente-display);
   font-size: 11px;
   font-style: italic;
   color: rgba(26, 39, 68, 0.45);
   transition: border-color 0.2s;
 }
 
-.gallery-thumb.filled {
+.miniatura-galeria.relleno {
   background: transparent;
-  border-color: var(--gold);
+  border-color: var(--dorado);
 }
 
-.gallery-thumb img {
+.miniatura-galeria img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Tags */
-.tags-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 2px;
-}
-
-.tag {
-  font-family: var(--font-display);
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--navy);
-  background: var(--cream-dark);
-  border: 1px solid rgba(201, 168, 76, 0.4);
-  border-radius: 2px;
-  padding: 4px 10px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: default;
-}
-
-.tag-remove {
-  color: var(--text-muted);
-  cursor: pointer;
-  font-size: 13px;
-  line-height: 1;
-  transition: color 0.15s;
-}
-.tag-remove:hover { color: var(--red-soft); }
-
 /* ── BUTTONS ROW ── */
-.buttons-row {
+.fila-botones {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -332,8 +299,8 @@ cambiar todo, entontré que podía ponerle 2 class con un espacio :) */
   border-top: 1px solid rgba(26, 39, 68, 0.1);
 }
 
-.btn {
-  font-family: var(--font-display);
+.boton {
+  font-family: var(--fuente-display);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 2.5px;
@@ -344,67 +311,50 @@ cambiar todo, entontré que podía ponerle 2 class con un espacio :) */
   cursor: pointer;
   transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
 }
-.btn:active { transform: scale(0.97); }
+.boton:active { transform: scale(0.97); }
 
-.btn-cancel {
-  background: transparent;
-  color: var(--text-muted);
-  border: 1px solid rgba(107, 107, 107, 0.3);
-}
-.btn-cancel:hover {
-  background: rgba(107, 107, 107, 0.08);
-  color: var(--text-body);
-}
-
-.btn-draft {
-  background: var(--green-btn);
-  color: var(--white);
-}
-.btn-draft:hover {
-  background: var(--green-hover);
-  box-shadow: 0 4px 16px rgba(58, 125, 68, 0.3);
-}
-
-.btn-publish {
-  background: var(--navy);
-  color: var(--white);
-  border: 1px solid var(--gold);
+.boton-publicar {
+  background: var(--azul);
+  color: var(--blanco);
+  border: 1px solid var(--dorado);
   position: relative;
   overflow: hidden;
 }
-.btn-publish::after {
+.boton-publicar::after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, transparent 40%, rgba(201, 168, 76, 0.15));
   pointer-events: none;
 }
-.btn-publish:hover {
-  background: var(--navy-light);
+.boton-publicar:hover {
+  background: var(--azul-claro);
   box-shadow: 0 4px 20px rgba(201, 168, 76, 0.25);
 }
 
 /* ── EDITOR QUILL ── */
-#editorContenido .ql-editor {
-  font-family: var(--font-body);
+#editorContenido1 .ql-editor,
+#editorContenido2 .ql-editor {
+  font-family: var(--fuente-cuerpo);
   font-size: 12px;
   line-height: 1.5;
   text-align: justify;
 }
 
 /* Sangría en primera línea de cada párrafo */
-#editorContenido .ql-editor p {
+#editorContenido1 .ql-editor p,
+#editorContenido2 .ql-editor p {
   text-indent: 1em;
 }
 
 /* ── FOOTER ── */
-.page-footer {
-  background: var(--navy);
+.pie-pagina {
+  background: var(--azul);
   padding: 10px clamp(24px, 4vw, 40px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: var(--font-display);
+  font-family: var(--fuente-display);
   font-size: 9px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
@@ -418,17 +368,17 @@ cambiar todo, entontré que podía ponerle 2 class con un espacio :) */
 
 /* ── NOTEBOOKS / MONITORES CHICOS (≤1024px) ── */
 @media (max-width: 1024px) {
-  .form-container {
+  .contenedor-formulario {
     margin: 28px auto;
     max-width: 92%;
   }
 
-  .form-body {
+  .cuerpo-formulario {
     grid-template-columns: 1fr;
   }
 
-  .field-group.half,
-  .field-group.third {
+  .grupo-campo.mitad,
+  .grupo-campo.tercio {
     grid-column: 1 / -1;
   }
 }

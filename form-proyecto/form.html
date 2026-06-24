@@ -11,98 +11,98 @@
   
 <body>
 
-  <div class="page-wrapper">
+  <div class="envoltorio-pagina">
 
     <!-- Top bar -->
-    <header class="topbar">
-      <span class="topbar-back" type= "button" id="btnback"> ← Volver a la revista</span>
-      <span class="topbar-title">IDENTIDAD</span>
-      <span class="topbar-date">Junio 2026 — N° 01</span>
+    <header class="barra-superior">
+      <span class="volver-barra" type= "button" id="btnVolver"> ← Volver a la revista</span>
+      <span class="titulo-barra">IDENTIDAD</span>
+      <span class="fecha-barra">Junio 2026 — N° 01</span>
     </header>
 
-    <main class="form-container">
+    <main class="contenedor-formulario">
 
-      <div class="form-header">
-        <p class="form-label-top">NUEVA PUBLICACIÓN</p>
-        <h1 class="form-title">Crea tu Columna</h1>
-        <p class="form-subtitle">Completá los campos para subir un nuevo artículo</p>
-        <div class="gold-rule"></div>
+      <div class="encabezado-formulario">
+        <p class="etiqueta-superior-formulario">NUEVA PUBLICACIÓN</p>
+        <h1 class="titulo-formulario">Crea tu Columna</h1>
+        <p class="subtitulo-formulario">Completá los campos para subir un nuevo artículo</p>
+        <div class="linea-dorada"></div>
       </div>
 
-      <form id="formularioArticulo" class="form-body">
+      <form id="formularioArticulo" class="cuerpo-formulario">
 
         <!-- Título -->
-        <div class="field-group full">
-          <label class="campo-label" for="titulo">Título</label>
-          <input class="campo-input" type="text" id="titulo" name="titulo" placeholder="Ej: Colonia del Sacramento, 300 años de historia viva">
+        <div class="grupo-campo completo">
+          <label class="etiqueta-campo" for="titulo">Título</label>
+          <input class="entrada-campo" type="text" id="titulo" name="titulo" placeholder="Ej: Colonia del Sacramento, 300 años de historia viva">
         </div>
 
         <!-- Subtítulo -->
-        <div class="field-group full">
-          <label class="campo-label" for="subtitulo">Subtítulo</label>
-          <input class="campo-input" type="text" id="subtitulo" name="subtitulo" placeholder="Ej: 300 años de historia viva">
+        <div class="grupo-campo completo">
+          <label class="etiqueta-campo" for="subtitulo">Subtítulo</label>
+          <input class="entrada-campo" type="text" id="subtitulo" name="subtitulo" placeholder="Ej: 300 años de historia viva">
         </div>
 
         <!-- Fecha y Autor -->
-        <div class="field-group half">
-          <label class="campo-label" for="fecha">Fecha de Publicación</label>
-          <input class="campo-input" type="date" id="fecha" name="fecha">
+        <div class="grupo-campo mitad">
+          <label class="etiqueta-campo" for="fecha">Fecha de Publicación</label>
+          <input class="entrada-campo" type="date" id="fecha" name="fecha">
         </div>
-        <div class="field-group half">
-          <label class="campo-label" for="autor">Autor</label>
-          <input class="campo-input" type="text" id="autor" name="autor" placeholder="Nombre del autor">
+        <div class="grupo-campo mitad">
+          <label class="etiqueta-campo" for="autor">Autor</label>
+          <input class="entrada-campo" type="text" id="autor" name="autor" placeholder="Nombre del autor">
         </div>
 
         <!-- Imagen destacada -->
-        <div class="field-group full">
-          <label class="campo-label">Imagen destacada</label>
-          <div class="image-row">
-            <button class="btn-upload" type="button" id="btnPortada">
-              <span class="upload-icon">↑</span>
+        <div class="grupo-campo completo">
+          <label class="etiqueta-campo">Imagen destacada</label>
+          <div class="fila-imagen">
+            <button class="boton-subir" type="button" id="btnPortada">
+              <span class="icono-subir">↑</span>
               Subir imagen
             </button>
             <input type="file" id="inputPortada" accept="image/*" hidden>
-            <div class="img-preview" id="previewPortada">
-              <span class="preview-placeholder">Img Destacada</span>
+            <div class="vista-previa-imagen" id="previewPortada">
+              <span class="marcador-vista-previa">Img Destacada</span>
               <img id="imgPortada" src="" alt="Preview portada" hidden>
             </div>
           </div>
         </div>
 
         <!-- Contenido 1 -->
-        <div class="field-group full">
-          <label class="campo-label">Contenido 1</label>
+        <div class="grupo-campo completo">
+          <label class="etiqueta-campo">Contenido 1</label>
           <div id="editorContenido1"></div>
         </div>
 
         <!-- Galería -->
-        <div class="field-group full">
-          <label class="campo-label">Galería de imágenes</label>
-          <div class="gallery-row">
-            <button class="btn-upload" type="button" id="btnGaleria">
-              <span class="upload-icon">+</span>
+        <div class="grupo-campo completo">
+          <label class="etiqueta-campo">Galería de imágenes</label>
+          <div class="fila-galeria">
+            <button class="boton-subir" type="button" id="btnGaleria">
+              <span class="icono-subir">+</span>
               Agrega imgs +
             </button>
             <input type="file" id="inputGaleria" accept="image/*" multiple hidden>
-            <div class="gallery-grid" id="galleryGrid">
-              <div class="gallery-thumb empty"><span>img1</span></div>
-              <div class="gallery-thumb empty"><span>img2</span></div>
-              <div class="gallery-thumb empty"><span>img3</span></div>
-              <div class="gallery-thumb empty"><span>img4</span></div>
+            <div class="grilla-galeria" id="grillaGaleria">
+              <div class="miniatura-galeria vacio"><span>img1</span></div>
+              <div class="miniatura-galeria vacio"><span>img2</span></div>
+              <div class="miniatura-galeria vacio"><span>img3</span></div>
+              <div class="miniatura-galeria vacio"><span>img4</span></div>
             </div>
           </div>
         </div>
 
         <!-- Contenido 2 -->
-        <div class="field-group full">
-          <label class="campo-label">Contenido 2</label>
+        <div class="grupo-campo completo">
+          <label class="etiqueta-campo">Contenido 2</label>
           <div id="editorContenido2"></div>
         </div>
 
         <!-- Categoría -->
-        <div class="field-group third">
-          <label class="campo-label" for="categoria">Categoría</label>
-          <select class="campo-input campo-select" id="categoria" name="categoria">
+        <div class="grupo-campo tercio">
+          <label class="etiqueta-campo" for="categoria">Categoría</label>
+          <select class="entrada-campo seleccion-campo" id="categoria" name="categoria">
             <option value="" disabled selected>Seleccionar</option>
             <option>Patrimonio</option>
             <option>Historia</option>
@@ -117,15 +117,15 @@
         <p id="mensaje"></p>
 
         <!-- Botones -->
-        <div class="field-group full buttons-row">
-          <button class="btn btn-publish" type="button">Publicar Artículo</button>
+        <div class="grupo-campo completo fila-botones">
+          <button class="boton boton-publicar" type="button">Publicar Artículo</button>
         </div>
 
       </form>
 
     </main>
 
-    <footer class="page-footer">
+    <footer class="pie-pagina">
       <span>IDENTIDAD — Cultura · Historia · Patrimonio · Uruguay</span>
       <span>ISSN 2993-XXXX</span>
     </footer>

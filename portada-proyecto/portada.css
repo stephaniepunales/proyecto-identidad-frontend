@@ -4,12 +4,12 @@
 ══════════════════════════════════════ */
 
 html, body {
-  background: var(--navy);
+  background: var(--azul);
   overflow-x: hidden;
 }
 
 /* ── OUTER WRAPPER ── */
-.magazine-wrapper {
+.envoltorio-revista {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,7 +19,7 @@ html, body {
 }
 
 /* ── MAGAZINE SPREAD (horizontal) ── */
-.magazine {
+.revista {
   width: 100%;
   max-width: 1600px;
   min-height: 820px;
@@ -34,13 +34,13 @@ html, body {
 /* ══════════════════════════════════════
    PÁGINA IZQUIERDA — TAPA
 ══════════════════════════════════════ */
-.cover {
+.tapa {
   position: relative;
   overflow: hidden;
-  background: var(--navy);
+  background: var(--azul);
 }
 
-.cover-photo {
+.foto-tapa {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -50,7 +50,7 @@ html, body {
   filter: brightness(0.82) saturate(1.1);
 }
 
-.cover-overlay {
+.superposicion-tapa {
   position: absolute;
   inset: 0;
   background:
@@ -58,7 +58,7 @@ html, body {
     linear-gradient(to right, rgba(10, 20, 45, 0.45) 0%, transparent 60%);
 }
 
-.cover-content {
+.contenido-tapa {
   position: relative; /* queda por encima del overlay */
   z-index: 2;
   height: 100%;
@@ -68,25 +68,25 @@ html, body {
 }
 
 /* Masthead */
-.masthead {
+.cabecera {
   text-align: center;
   border-bottom: 1px solid rgba(201, 168, 76, 0.4);
   padding-bottom: 10px;
   margin-bottom: 6px;
 }
 
-.masthead-title {
-  font-family: var(--font-serif);
+.titulo-cabecera {
+  font-family: var(--fuente-serif);
   font-size: clamp(42px, 4.5vw, 55px);
   font-weight: 900;
   letter-spacing: 6px;
-  color: var(--white);
+  color: var(--blanco);
   line-height: 1;
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 
-.masthead-sub {
-  font-family: var(--font-display);
+.subtitulo-cabecera {
+  font-family: var(--fuente-display);
   font-size: 9.5px;
   letter-spacing: 4px;
   color: rgba(255, 255, 255, 0.75);
@@ -94,11 +94,11 @@ html, body {
   margin-top: 6px;
 }
 
-.masthead-meta {
+.meta-cabecera {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: var(--font-display);
+  font-family: var(--fuente-display);
   font-size: 9px;
   letter-spacing: 2px;
   color: rgba(255, 255, 255, 0.6);
@@ -107,39 +107,39 @@ html, body {
 }
 
 /* Headline de tapa */
-.cover-headline {
+.titular-tapa {
   margin-top: auto;
   padding-top: 20px;
 }
 
-.cover-headline h2 {
-  font-family: var(--font-serif);
+.titular-tapa h2 {
+  font-family: var(--fuente-serif);
   font-size: clamp(26px, 2.8vw, 34px);
   font-weight: 900;
-  color: var(--white);
+  color: var(--blanco);
   line-height: 1.1;
   text-transform: uppercase;
   letter-spacing: 1px;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
-.cover-headline h2 em {
+.titular-tapa h2 em {
   font-weight: 400;
   font-style: italic;
   font-size: clamp(22px, 2.4vw, 30px);
   display: block;
-  color: var(--gold-light);
+  color: var(--dorado-claro);
 }
 
-.gold-rule {
+.linea-dorada {
   width: 40px;
   height: 1px;
-  background: var(--gold);
+  background: var(--dorado);
   margin: 12px 0;
 }
 
-.cover-tagline {
-  font-family: var(--font-display);
+.frase-tapa {
+  font-family: var(--fuente-display);
   font-size: 13px;
   color: rgba(255, 255, 255, 0.82);
   font-style: italic;
@@ -148,28 +148,28 @@ html, body {
 }
 
 /* Pie de tapa */
-.cover-bottom {
+.pie-tapa {
   margin-top: auto;
   padding-top: 20px;
   border-top: 1px solid rgba(201, 168, 76, 0.3);
 }
 
-.cover-bottom-title {
-  font-family: var(--font-serif);
+.titulo-pie-tapa {
+  font-family: var(--fuente-serif);
   font-size: 22px;
   font-weight: 700;
-  color: var(--white);
+  color: var(--blanco);
   line-height: 1.1;
 }
 
-.cover-bottom-title em {
+.titulo-pie-tapa em {
   font-style: italic;
   font-weight: 400;
-  color: var(--gold-light);
+  color: var(--dorado-claro);
 }
 
-.cover-bottom-sub {
-  font-family: var(--font-display);
+.subtitulo-pie-tapa {
+  font-family: var(--fuente-display);
   font-size: 9px;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -178,20 +178,20 @@ html, body {
 }
 
 /* Código de barras */
-.barcode-area {
+.area-codigo-barras {
   margin-top: 16px;
   display: flex;
   align-items: flex-end;
   gap: 8px;
 }
 
-.barcode-svg {
+.svg-codigo-barras {
   width: 64px;
   height: 38px;
 }
 
-.barcode-text {
-  font-family: var(--font-display);
+.texto-codigo-barras {
+  font-family: var(--fuente-display);
   font-size: 7px;
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.4;
@@ -200,75 +200,15 @@ html, body {
 /* ══════════════════════════════════════
    PÁGINA DERECHA — CONTENIDO
 ══════════════════════════════════════ */
-.content-page {
-  background: var(--cream);
+.pagina-contenido {
+  background: var(--crema);
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
-/* Barra superior */
-.content-topbar {
-  background: var(--navy);
-  padding: 12px 36px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.topbar-title {
-  font-family: var(--font-serif);
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 5px;
-  color: var(--white);
-  text-transform: uppercase;
-}
-
-.topbar-date {
-  font-family: var(--font-display);
-  font-size: 11px;
-  letter-spacing: 3px;
-  color: var(--gold);
-  text-transform: uppercase;
-}
-
-/* Navegación (oculta por defecto) */
-.content-nav {
-  background: var(--cream-dark);
-  border-bottom: 1px solid rgba(26, 39, 68, 0.12);
-  padding: 0 36px;
-  display: none;
-  gap: 4px;
-}
-
-.nav-btn {
-  font-family: var(--font-display);
-  font-size: 10px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--navy);
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  padding: 12px 14px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.nav-btn:hover {
-  color: var(--gold);
-  border-bottom-color: var(--gold);
-}
-
-.nav-btn.active {
-  color: var(--navy);
-  border-bottom-color: var(--navy);
-}
-
 /* Cuerpo de contenido */
-.content-body {
+.cuerpo-contenido {
   flex: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -277,8 +217,8 @@ html, body {
 }
 
 /* Tarjeta de artículo */
-.article-card {
-  background: var(--cream);
+.tarjeta-articulo {
+  background: var(--crema);
   padding: 18px 22px;
   display: flex;
   flex-direction: column;
@@ -287,17 +227,12 @@ html, body {
   transition: background 0.2s;
 }
 
-.article-card:hover {
+.tarjeta-articulo:hover {
   background: #f0e9db;
 }
 
-.article-card:hover .article-read-more {
-  color: var(--navy);
-  letter-spacing: 3px;
-}
-
-.article-number {
-  font-family: var(--font-serif);
+.numero-articulo {
+  font-family: var(--fuente-serif);
   font-size: 52px;
   font-weight: 900;
   color: rgba(26, 39, 68, 0.07);
@@ -307,115 +242,53 @@ html, body {
   right: 20px;
 }
 
-.article-category {
-  font-family: var(--font-display);
+.categoria-articulo {
+  font-family: var(--fuente-display);
   font-size: 9px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--dorado);
   font-weight: 600;
   margin-bottom: 10px;
 }
 
-.article-title {
-  font-family: var(--font-serif);
+.titulo-articulo {
+  font-family: var(--fuente-serif);
   font-size: 15px;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--azul);
   line-height: 1.15;
   margin-bottom: 8px;
 }
 
-.article-title em {
+.titulo-articulo em {
   font-style: italic;
   font-weight: 400;
 }
 
-.article-rule {
+.regla-articulo {
   width: 28px;
   height: 1px;
-  background: var(--gold);
+  background: var(--dorado);
   margin: 10px 0;
 }
 
-.article-desc {
-  font-family: var(--font-display);
+.descripcion-articulo {
+  font-family: var(--fuente-display);
   font-size: 13.5px;
-  color: var(--text-muted);
+  color: var(--texto-suave);
   font-style: italic;
   line-height: 1.6;
   flex: 1;
 }
 
-.article-read-more {
-  font-family: var(--font-display);
-  font-size: 9px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(26, 39, 68, 0.35);
-  font-weight: 600;
-  margin-top: 14px;
-  transition: all 0.25s ease;
-}
-
-.article-link {
+.enlace-articulo {
   display: block;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
 }
-.article-link:hover { color: inherit; }
-
-/* Franja de edición al pie */
-.content-footer {
-  background: var(--navy);
-  padding: 10px 36px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.footer-edition {
-  font-family: var(--font-display);
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-
-.footer-nav-arrows {
-  display: flex;
-  gap: 8px;
-}
-
-.footer-arrow {
-  width: 28px;
-  height: 28px;
-  border: 1px solid rgba(201, 168, 76, 0.4);
-  border-radius: 50%;
-  background: none;
-  color: var(--gold);
-  font-size: 12px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
-}
-
-.footer-arrow:hover {
-  background: var(--gold);
-  color: var(--navy);
-  border-color: var(--gold);
-}
-
-.footer-issn {
-  font-family: var(--font-display);
-  font-size: 9px;
-  letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.35);
-  text-transform: uppercase;
-}
+.enlace-articulo:hover { color: inherit; }
 
 /* ── CLIMA ── */
 header {
@@ -426,7 +299,7 @@ header {
   display: flex;
   gap: 12px;
   align-items: center;
-  font-family: var(--font-display);
+  font-family: var(--fuente-display);
   color: rgba(255, 255, 255, 0.7);
   font-size: 13px;
   letter-spacing: 1px;
@@ -435,7 +308,7 @@ header {
 #clima-temp {
   font-weight: bold;
   font-size: 15px;
-  color: var(--gold);
+  color: var(--dorado);
 }
 
 #clima-ciudad {
@@ -454,18 +327,18 @@ header {
 
 /* ── NOTEBOOKS / MONITORES CHICOS (≤1300px) ── */
 @media (max-width: 1300px) {
-  .magazine-wrapper {
+  .envoltorio-revista {
     padding: 24px 16px;
   }
 
-  .magazine {
+  .revista {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 /* ── MONITORES MUY ANCHOS (≥1900px) ── */
 @media (min-width: 1900px) {
-  .magazine {
+  .revista {
     max-width: 1800px;
     grid-template-columns: 800px 1fr;
   }

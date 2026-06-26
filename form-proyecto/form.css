@@ -262,8 +262,7 @@ cambiar todo, entontré que podía ponerle 2 class con un espacio :) */
 .miniatura-galeria {
   flex: 1;
   aspect-ratio: 1;
-  min-width: 60px;
-  max-width: 90px;
+  min-width: 120px;
   background: var(--fondo-imagen);
   border-radius: 2px;
   display: flex;
@@ -324,7 +323,7 @@ cambiar todo, entontré que podía ponerle 2 class con un espacio :) */
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, transparent 40%, rgba(201, 168, 76, 0.15));
+  background: linear-gradient(135deg, transparent 40%, rgba(243, 32, 4, 0.15));
   pointer-events: none;
 }
 .boton-publicar:hover {
@@ -360,6 +359,51 @@ cambiar todo, entontré que podía ponerle 2 class con un espacio :) */
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.3);
   border-top: 1px solid rgba(201, 168, 76, 0.15);
+}
+
+/* ── GALERÍA DE URLs ─────────────────────────────────────── */
+
+.fila-galeria {
+  align-items: flex-start; /* ahora cada columna tiene input + miniatura, ya no center */
+}
+
+.columna-galeria {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 60px;
+}
+
+.input-galeria-url {
+  font-family: var(--fuente-display);
+  font-size: 11px;
+  color: var(--texto-cuerpo);
+  background: var(--blanco);
+  border: 1px solid rgba(26, 39, 68, 0.18);
+  border-radius: 2px;
+  padding: 6px 8px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-galeria-url:focus {
+  border-color: var(--dorado);
+  box-shadow: 0 2px 0 0 var(--dorado);
+}
+
+.input-galeria-url::placeholder {
+  color: rgba(107, 107, 107, 0.5);
+  font-style: italic;
+}
+.fila-imagen #inputPortada {
+  width: auto;
+  flex: 1;
+}
+
+.fila-imagen .vista-previa-imagen {
+  flex: 1;
 }
 
 /* ════════════════════════════════════════════════════════

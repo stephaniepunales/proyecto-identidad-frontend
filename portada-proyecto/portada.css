@@ -290,11 +290,15 @@ html, body {
 }
 .enlace-articulo:hover { color: inherit; }
 
-/* ── CLIMA ── */
+/* ── HEADER ── */
 header {
   margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+/* ── CLIMA ── */
 #clima {
   display: flex;
   gap: 12px;
@@ -320,6 +324,41 @@ header {
 #clima-condicion {
   font-style: italic;
 }
+
+/* Botón "Crea tu Artículo" — mismo estilo visual que .boton-publicar del form */
+.boton-form {
+  font-family: var(--fuente-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 2px;
+  padding: 12px 22px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+  background: var(--azul);
+  color: var(--blanco);
+  border: 1px solid var(--dorado);
+  position: relative;
+  overflow: hidden;
+}
+.boton-form:active { transform: scale(0.97); }
+.boton-form::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(243, 32, 4, 0.15));
+  pointer-events: none;
+}
+.boton-form:hover {
+  background: var(--azul-claro);
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.25);
+}
+
+
+
 
 /* ════════════════════════════════════════════════════════
    RESPONSIVE — solo pantallas de escritorio

@@ -55,13 +55,9 @@
 
         <!-- Imagen destacada -->
         <div class="grupo-campo completo">
-          <label class="etiqueta-campo">Imagen destacada</label>
+          <label class="etiqueta-campo" for="inputPortada">Imagen destacada (URL)</label>
           <div class="fila-imagen">
-            <button class="boton-subir" type="button" id="btnPortada">
-              <span class="icono-subir">↑</span>
-              Subir imagen
-            </button>
-            <input type="file" id="inputPortada" accept="image/*" hidden>
+            <input class="entrada-campo" type="url" id="inputPortada" placeholder="https://ejemplo.com/imagen.jpg">
             <div class="vista-previa-imagen" id="previewPortada">
               <span class="marcador-vista-previa">Img Destacada</span>
               <img id="imgPortada" src="" alt="Preview portada" hidden>
@@ -77,17 +73,22 @@
 
         <!-- Galería -->
         <div class="grupo-campo completo">
-          <label class="etiqueta-campo">Galería de imágenes</label>
+          <label class="etiqueta-campo">Galería de imágenes (URLs)</label>
           <div class="fila-galeria">
-            <button class="boton-subir" type="button" id="btnGaleria">
-              <span class="icono-subir">+</span>
-              Agrega imgs +
-            </button>
-            <input type="file" id="inputGaleria" accept="image/*" multiple hidden>
-            <div class="grilla-galeria" id="grillaGaleria">
+            <div class="columna-galeria">
+              <input class="input-galeria-url" type="url" placeholder="URL img 1">
               <div class="miniatura-galeria vacio"><span>img1</span></div>
+            </div>
+            <div class="columna-galeria">
+              <input class="input-galeria-url" type="url" placeholder="URL img 2">
               <div class="miniatura-galeria vacio"><span>img2</span></div>
+            </div>
+            <div class="columna-galeria">
+              <input class="input-galeria-url" type="url" placeholder="URL img 3">
               <div class="miniatura-galeria vacio"><span>img3</span></div>
+            </div>
+            <div class="columna-galeria">
+              <input class="input-galeria-url" type="url" placeholder="URL img 4">
               <div class="miniatura-galeria vacio"><span>img4</span></div>
             </div>
           </div>

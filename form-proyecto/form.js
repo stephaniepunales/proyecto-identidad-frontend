@@ -10,107 +10,61 @@ document.addEventListener("DOMContentLoaded", () => { // Espera a que todo el HT
 
   // ── IMAGEN DESTACADA ──────────────────────────────────────
 
-  const btnPortada = document.getElementById('btnPortada');         // Agarra el botón "Subir imagen" del HTML
-  const inputPortada = document.getElementById('inputPortada');     // Agarra el input file oculto
-  const imgPortada = document.getElementById('imgPortada');         // Agarra la etiqueta img donde se muestra la preview
-  const previewPortada = document.getElementById('previewPortada'); // Agarra el contenedor del preview
+  const inputPortada = document.getElementById('inputPortada');     // Input de texto/url para la imagen destacada
+  const imgPortada = document.getElementById('imgPortada');         // Etiqueta img donde se muestra la preview
+  const previewPortada = document.getElementById('previewPortada'); // Contenedor del preview
 
-  btnPortada.addEventListener('click', function() { // Escucha el clic en el botón
-    inputPortada.click(); // Simula un clic en el input oculto, abriendo el explorador de archivos
+  inputPortada.addEventListener('input', function() { // Se dispara cada vez que el usuario tipea o pega algo
+    const url = inputPortada.value.trim();
+
+    if (url) {
+      imgPortada.src = url;                 // Intenta mostrar la imagen desde la URL
+      imgPortada.hidden = false;
+      previewPortada.querySelector('.marcador-vista-previa').hidden = true;
+    } else {
+      imgPortada.src = '';
+      imgPortada.hidden = true;
+      previewPortada.querySelector('.marcador-vista-previa').hidden = false;
+    }
   });
 
-  inputPortada.addEventListener('change', function() { // Se dispara cuando el usuario elige un archivo
-    const archivo = inputPortada.files[0]; // Agarra el primer archivo de la lista
-
-    if (archivo) {
-      const reader = new FileReader(); // FileReader convierte el archivo a Base64
-
-      reader.onload = function(e) {
-        const base64 = e.target.result;          // La imagen convertida a texto Base64
-        imgPortada.src = base64;                 // La muestra en el preview
-        imgPortada.hidden = false;               // Muestra la imagen que estaba oculta
-        imgPortada.dataset.base64 = base64;      // Guarda el Base64 en el elemento para leerlo al publicar
-        previewPortada.querySelector('.marcador-vista-previa').hidden = true; // Oculta el texto "Img Destacada"
-
-        const btnBorrar = document.createElement('button'); // Crea el botón X
-        btnBorrar.textContent = '✕';
-        btnBorrar.type = 'button';
-        btnBorrar.id = 'btnBorrarPortada';
-        previewPortada.appendChild(btnBorrar);
-
-        btnBorrar.addEventListener('click', function() {
-          imgPortada.src = '';
-          imgPortada.hidden = true;
-          imgPortada.dataset.base64 = '';        // Limpia el Base64 guardado
-          previewPortada.querySelector('.marcador-vista-previa').hidden = false;
-          inputPortada.value = '';
-          btnBorrar.remove();
-        });
-      };
-
-      reader.readAsDataURL(archivo); // Dispara la conversión a Base64
-    }
+  imgPortada.addEventListener('error', function() { // Si la URL no carga una imagen válida
+    imgPortada.hidden = true;
+    previewPortada.querySelector('.marcador-vista-previa').hidden = false;
   });
 
   // ── GALERÍA ───────────────────────────────────────────────
 
-  const btnGaleria = document.getElementById('btnGaleria');     // Agarra el botón "Agrega imgs +"
-  const inputGaleria = document.getElementById('inputGaleria'); // Agarra el input file oculto de la galería
-  const galleryGrid = document.getElementById('grillaGaleria');   // Agarra el contenedor de los thumbs
-  const galeriaBase64 = [];                                     // Array para guardar las 4 imágenes en Base64
+  const inputsGaleria = document.querySelectorAll('.input-galeria-url'); // Los 4 inputs de URL de la galería
 
-  btnGaleria.addEventListener('click', function() {
-    inputGaleria.click();
-  });
+  inputsGaleria.forEach(function(input) {
+    input.addEventListener('input', function() {
+      const url = input.value.trim();
+      const columna = input.closest('.columna-galeria');       // La columna donde vive este input
+      const thumb = columna.querySelector('.miniatura-galeria'); // Su miniatura correspondiente
 
-  inputGaleria.addEventListener('change', function() {
-    const archivos = inputGaleria.files;
+      thumb.innerHTML = ''; // Limpia el contenido anterior del thumb
 
-    if (archivos.length > 4) {
-      alert('Solo se permiten máximo 4 imágenes.');
-    }
+      if (url) {
+        const img = document.createElement('img');
+        img.src = url;
+        img.style.width = '100%';
+        img.style.height = '100%';
+        img.style.objectFit = 'cover';
 
-    const thumbs = galleryGrid.querySelectorAll('.miniatura-galeria');
+        img.addEventListener('error', function() { // Si la URL no es una imagen válida
+          const indice = Array.from(inputsGaleria).indexOf(input) + 1;
+          thumb.innerHTML = '<span>img' + indice + '</span>';
+        });
 
-    for (let i = 0; i < 4; i++) {
-      const thumb = thumbs[i];
-      thumb.innerHTML = '';
-      thumb.style.position = 'relative';
-      galeriaBase64[i] = ''; // Limpia la posición en el array
-
-      if (archivos[i]) {
-        const reader = new FileReader(); // Un FileReader por cada imagen
-        const indice = i;               // Guarda el índice para usarlo adentro del onload
-
-        reader.onload = function(e) {
-          galeriaBase64[indice] = e.target.result; // Guarda el Base64 en el array en la posición correcta
-
-          const img = document.createElement('img');
-          img.src = e.target.result;
-          img.style.width = '100%';
-          img.style.height = '100%';
-          img.style.objectFit = 'cover';
-
-          const btnBorrarThumb = document.createElement('button');
-          btnBorrarThumb.textContent = '✕';
-          btnBorrarThumb.type = 'button';
-          btnBorrarThumb.id = 'btnBorrarPortada';
-
-          btnBorrarThumb.addEventListener('click', function() {
-            galeriaBase64[indice] = '';  // Limpia el Base64 de esa posición
-            thumb.innerHTML = '<span>img' + (indice + 1) + '</span>';
-          });
-
-          thumb.appendChild(img);
-          thumb.appendChild(btnBorrarThumb);
-        };
-
-        reader.readAsDataURL(archivos[i]); // Convierte cada imagen a Base64
-
+        thumb.appendChild(img);
+        thumb.classList.add('relleno');
       } else {
-        thumb.innerHTML = '<span>img' + (i + 1) + '</span>';
+        const indice = Array.from(inputsGaleria).indexOf(input) + 1;
+        thumb.innerHTML = '<span>img' + indice + '</span>';
+        thumb.classList.remove('relleno');
       }
-    }
+    });
   });
 
   // ── PUBLICAR ARTÍCULO ─────────────────────────────────────
@@ -129,8 +83,10 @@ document.addEventListener("DOMContentLoaded", () => { // Espera a que todo el HT
     const descripcion2 = quill2.root.innerHTML.trim(); // HTML del segundo editor
     const textoPlano   = quill1.getText().trim() + quill2.getText().trim(); // Texto puro para validar
 
-    const portada  = imgPortada.dataset.base64 || '';  // Base64 de la imagen destacada
-    const galeria  = galeriaBase64.filter(img => img !== ''); // Array con solo las imágenes cargadas
+    const portada = inputPortada.value.trim(); // URL de la imagen destacada
+    const galeria = Array.from(inputsGaleria)
+      .map(input => input.value.trim())
+      .filter(url => url !== ''); // Array con solo las URLs completadas
 
     if (!titulo || !autor || !textoPlano) {
       alert('Completá los campos obligatorios: título, autor y contenido.');

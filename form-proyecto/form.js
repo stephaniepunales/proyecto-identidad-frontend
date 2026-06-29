@@ -69,52 +69,52 @@ document.addEventListener("DOMContentLoaded", () => { // Espera a que todo el HT
 
   // ── PUBLICAR ARTÍCULO ─────────────────────────────────────
 
-  const btnPublicar = document.querySelector('.boton-publicar');
+  const publicarFormulario = document.getElementById('formularioArticulo');
 
-  btnPublicar.addEventListener('click', async function() {
+publicarFormulario.addEventListener('submit', async function(event) {
+  event.preventDefault(); // Evita que el navegador recargue la página
 
-    const titulo     = document.getElementById('titulo').value.trim();
-    const subtitulo  = document.getElementById('subtitulo').value.trim();
-    const autor      = document.getElementById('autor').value.trim();
-    const categoria  = document.getElementById('categoria').value.trim();
-    const fecha      = document.getElementById('fecha').value;
+  const titulo     = document.getElementById('titulo').value.trim();
+  const subtitulo  = document.getElementById('subtitulo').value.trim();
+  const autor      = document.getElementById('autor').value.trim();
+  const categoria  = document.getElementById('categoria').value.trim();
+  const fecha      = document.getElementById('fecha').value;
 
-    const descripcion1 = quill1.root.innerHTML.trim(); // HTML del primer editor
-    const descripcion2 = quill2.root.innerHTML.trim(); // HTML del segundo editor
-    const textoPlano   = quill1.getText().trim() + quill2.getText().trim(); // Texto puro para validar
+  const descripcion1 = quill1.root.innerHTML.trim();
+  const descripcion2 = quill2.root.innerHTML.trim();
+  const textoPlano   = quill1.getText().trim() + quill2.getText().trim();
 
-    const portada = inputPortada.value.trim(); // URL de la imagen destacada
-    const galeria = Array.from(inputsGaleria)
-      .map(input => input.value.trim())
-      .filter(url => url !== ''); // Array con solo las URLs completadas
+  const portada = inputPortada.value.trim();
+  const galeria = Array.from(inputsGaleria)
+    .map(input => input.value.trim())
+    .filter(url => url !== '');
 
-    if (!titulo || !autor || !textoPlano) {
-      alert('Completá los campos obligatorios: título, autor y contenido.');
-      return;
+  if (!titulo || !autor || !textoPlano) {
+    alert('Completá los campos obligatorios: título, autor y contenido.');
+    return;
+  }
+
+  const datos = { titulo, subtitulo, autor, categoria, fecha, descripcion1, descripcion2, portada, galeria};
+
+  try {
+    const respuesta = await fetch(`${API_URL}/articulos`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(datos)
+    });
+
+    const articulo = await respuesta.json();
+
+    if (respuesta.ok) {
+      window.location.href = '../articulo-proyecto/articulo.html?id=' + articulo.id;
+    } else {
+      alert(articulo.error || 'Error al publicar el artículo.');
     }
 
-    const datos = { titulo, subtitulo, autor, categoria, fecha, descripcion1, descripcion2, portada, galeria };
-
-    try {
-      const respuesta = await fetch(`${API_URL}/articulos`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(datos)
-      });
-
-      const articulo = await respuesta.json(); 
-
-      if (respuesta.ok) {
-        window.location.href = '../articulo-proyecto/articulo.html?id=' + articulo.id;
-      } else {
-        alert(articulo.error || 'Error al publicar el artículo.');
-      }
-
-    } catch (error) {
-      console.error('Error de red:', error);
-      alert('No se pudo conectar con el servidor.');
-    }
+  } catch (error) {
+    console.error('Error de red:', error);
+    alert('No se pudo conectar con el servidor.');
+  }
 
   });
-
-}); // Cierra el DOMContentLoaded
+}); //Cierra el DOMContentLoaded

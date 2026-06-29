@@ -34,13 +34,13 @@
         <!-- Título -->
         <div class="grupo-campo completo">
           <label class="etiqueta-campo" for="titulo">Título</label>
-          <input class="entrada-campo" type="text" id="titulo" name="titulo" placeholder="Ej: Colonia del Sacramento, 300 años de historia viva">
+          <input class="entrada-campo" type="text" id="titulo" name="titulo" required placeholder="Ej: Colonia del Sacramento, 300 años de historia viva">
         </div>
 
         <!-- Subtítulo -->
         <div class="grupo-campo completo">
           <label class="etiqueta-campo" for="subtitulo">Subtítulo</label>
-          <input class="entrada-campo" type="text" id="subtitulo" name="subtitulo" placeholder="Ej: 300 años de historia viva">
+          <input class="entrada-campo" type="text" id="subtitulo" name="subtitulo" required placeholder="Ej: 300 años de historia viva">
         </div>
 
         <!-- Fecha y Autor -->
@@ -55,11 +55,11 @@
 
         <!-- Imagen destacada -->
         <div class="grupo-campo completo">
-          <label class="etiqueta-campo" for="inputPortada">Imagen destacada (URL)</label>
+          <label class="etiqueta-campo" for="inputPortada">Imagen Destacada</label>
           <div class="fila-imagen">
-            <input class="entrada-campo" type="url" id="inputPortada" placeholder="https://ejemplo.com/imagen.jpg">
+            <input class="entrada-campo" type="url" id="inputPortada" placeholder="Pegá la URL de tu Imagen Destacada">
             <div class="vista-previa-imagen" id="previewPortada">
-              <span class="marcador-vista-previa">Img Destacada</span>
+              <span class="marcador-vista-previa">Imagen Destacada</span>
               <img id="imgPortada" src="" alt="Preview portada" hidden>
             </div>
           </div>
@@ -73,23 +73,23 @@
 
         <!-- Galería -->
         <div class="grupo-campo completo">
-          <label class="etiqueta-campo">Galería de imágenes (URLs)</label>
+          <label class="etiqueta-campo">Galería de imágenes</label>
           <div class="fila-galeria">
             <div class="columna-galeria">
-              <input class="input-galeria-url" type="url" placeholder="URL img 1">
-              <div class="miniatura-galeria vacio"><span>img1</span></div>
+              <input class="input-galeria-url" type="url" placeholder="URL Imagen 1">
+              <div class="miniatura-galeria vacio"><span>Imagen 1</span></div>
             </div>
             <div class="columna-galeria">
-              <input class="input-galeria-url" type="url" placeholder="URL img 2">
-              <div class="miniatura-galeria vacio"><span>img2</span></div>
+              <input class="input-galeria-url" type="url" placeholder="URL Imagen 2">
+              <div class="miniatura-galeria vacio"><span>Imagen 2</span></div>
             </div>
             <div class="columna-galeria">
-              <input class="input-galeria-url" type="url" placeholder="URL img 3">
-              <div class="miniatura-galeria vacio"><span>img3</span></div>
+              <input class="input-galeria-url" type="url" placeholder="URL Imagen 3">
+              <div class="miniatura-galeria vacio"><span>Imagen 3</span></div>
             </div>
             <div class="columna-galeria">
-              <input class="input-galeria-url" type="url" placeholder="URL img 4">
-              <div class="miniatura-galeria vacio"><span>img4</span></div>
+              <input class="input-galeria-url" type="url" placeholder="URL Imagen 4">
+              <div class="miniatura-galeria vacio"><span>Imagen 4</span></div>
             </div>
           </div>
         </div>
@@ -119,7 +119,7 @@
 
         <!-- Botones -->
         <div class="grupo-campo completo fila-botones">
-          <button class="boton boton-publicar" type="button">Publicar Artículo</button>
+          <button class="boton boton-publicar" type="submit">Publicar Artículo</button>
         </div>
 
       </form>
@@ -128,7 +128,6 @@
 
     <footer class="pie-pagina">
       <span>IDENTIDAD — Cultura · Historia · Patrimonio · Uruguay</span>
-      <span>ISSN 2993-XXXX</span>
     </footer>
 
   </div>

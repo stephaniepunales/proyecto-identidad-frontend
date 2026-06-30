@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => { // Espera a que todo el HT
 
   const publicarFormulario = document.getElementById('formularioArticulo');
 
-publicarFormulario.addEventListener('submit', async function(event) {
+  publicarFormulario.addEventListener('submit', async function(event) {
   event.preventDefault(); // Evita que el navegador recargue la página
 
   const titulo     = document.getElementById('titulo').value.trim();
@@ -94,7 +94,7 @@ publicarFormulario.addEventListener('submit', async function(event) {
     return;
   }
 
-  const datos = { titulo, subtitulo, autor, categoria, fecha, descripcion1, descripcion2, portada, galeria};
+  const datos = { titulo, subtitulo, autor, categoria, fecha, descripcion1, descripcion2, portada, galeria };
 
   try {
     const respuesta = await fetch(`${API_URL}/articulos`, {
